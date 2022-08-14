@@ -118,4 +118,11 @@
           <!-- /.row -->
         </div><!--/. container-fluid -->
       </section>
+
+      <script type="text/javascript">
+      document.getElementById("beranda").innerHTML = '<a href="/" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Beranda</p></a>';
+      </script>
+      
+
+      <li class="nav-item nav-item menu-is-opening menu-open">
 @endsection

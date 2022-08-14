@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard 2</title>
+    <title>Aquaponic</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
+    <link rel="icon" href="{{ asset('AdminLTE/dist/img/aquaponicLogo.png') }}">
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -22,8 +23,8 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="{{ asset('AdminLTE/dist/img/aquaponicLogo.png') }}" alt="AquaponicLogo" height="60"
-                width="60">
+            <img class="animation__wobble" src="{{ asset('AdminLTE/dist/img/aquaponicLogo.png') }}" alt="AquaponicLogo"
+                height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -35,7 +36,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">DASHBOARD</a>
+                    <a href="#" id="TopTitle" class="nav-link">DASHBOARD</a>
                 </li>
             </ul>
 
@@ -66,7 +67,7 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                
+
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -76,13 +77,14 @@
                with font-awesome or any other icon font library -->
 
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li id="beranda" class="nav-item">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Beranda</p>
                             </a>
                         </li>
 
+                        <ul id="dataSensor" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -93,24 +95,25 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/datasensor-table" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tabel</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/datasensor-grafik" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Grafik</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                    </ul>
 
 
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li id="kolam" class="nav-item">
+                            <a href="/kolam" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Kolam</p>
                             </a>

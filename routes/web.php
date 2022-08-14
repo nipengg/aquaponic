@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main');
 });
+Route::get('/datasensor-table', function () {
+    return view('datatable');
+});
+Route::get('/datasensor-grafik', function () {
+    return view('datagrafik');
+});
+Route::get('/kolam', function () {
+    return view('kolam');
+});
