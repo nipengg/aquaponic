@@ -27,7 +27,6 @@
                     <div class="card">
                         <div class="card-header" id="formInput">
 
-
                             <h3 class="card-title">Kolam</h3>
                             <button type="button" onclick="inputForm()" class="btn btn-success float-right"><i class="fas fa-plus"
                                     ></i> Tambah
