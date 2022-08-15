@@ -37,7 +37,7 @@
                 </div>
                 <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
                     <div class="info-box-content">
-                        <span class="info-box-text" style="text-align: center; margin-bottom:10px;"> 
+                        <span class="info-box-text" style="text-align: center; margin-bottom:10px;">
                             <h5><b> Temperature</b></h5>
                         </span>
                         <iframe src="http://localhost/aquaponic/public/grafik/grafikTemp.php" style="height:20vw;"></iframe>
@@ -78,7 +78,7 @@
             </div>
             <!-- /.row -->
 
-            
+
         </div>
         <!-- /.content-header -->
 
