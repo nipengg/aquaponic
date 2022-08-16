@@ -2,31 +2,32 @@
 
 @section('content')
     <section class="content">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Grafik</h1>
-                    <div class="form-group">
-                        <label class="mt-3">Pilih Kolam</label>
-                        <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2"
-                            style="width: 100%;">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Grafik</h1>
+                        <div class="form-group">
+                            <label class="mt-3">Pilih Kolam</label>
+                            <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2"
+                                style="width: 100%;">
 
-                            @foreach ($kolam as $key)
-                                <option value="{{ $key->id }}">{{ $key->name }}</option>
-                            @endforeach
+                                @foreach ($kolam as $key)
+                                    <option value="{{ $key->id }}">{{ $key->name }}</option>
+                                @endforeach
 
-                        </select>
-                    </div>
-                </div><!-- /.col -->
-
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Grafik</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                            </select>
+                        </div>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">Grafik</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
 
         <div class="container-fluid">
             <!-- Info boxes -->
