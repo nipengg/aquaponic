@@ -34,9 +34,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
-    Route::get('/datasensor-table', function () {
-        return view('datatable');
-    });
+    Route::get('/datasensor-table', [GrafikController::class, 'table']);
+
     Route::get('/phgrafik', function () {
         return view('grafikph');
     });
