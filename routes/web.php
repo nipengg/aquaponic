@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GrafikController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\PoolController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', function () {
-        return view('main');
-    });
+    Route::get('/home', [MainController::class, 'index'])->name('home');
 
     Route::prefix('/kolam')->group(function () {
         Route::get('/', [PoolController::class, 'index'])->name('kolam');
