@@ -8,7 +8,8 @@
                     <h1 class="m-0">Grafik</h1>
                     <div class="form-group">
                         <label class="mt-3">Pilih Kolam</label>
-                        <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2" style="width: 100%;">
+                        <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2"
+                            style="width: 100%;">
 
                             @foreach ($kolam as $key)
                                 <option value="{{ $key->id }}">{{ $key->name }}</option>
@@ -17,13 +18,6 @@
                         </select>
                     </div>
                 </div><!-- /.col -->
-
-
-
-               
-
-
-
 
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -39,8 +33,8 @@
             <div class="row" style="">
                 <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
                     <div id="urlchangePh" class="info-box-content">
-                            <h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5>
-                            <iframe src="grafikph/1" style="height:20vw;"></iframe>
+                        <h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5>
+                        <iframe src="grafikph/1" style="height:20vw;"></iframe>
                     </div>
                 </div>
                 <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
@@ -84,14 +78,25 @@
         <script>
             function handleSelectChange(event) {
                 var value = document.getElementById("pilihKolam").value;
-                document.getElementById("urlchangePh").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikph/'+ value +'\'" style="height:20vw;"></iframe>'
-                document.getElementById("urlchangeOx").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikox/'+ value +'\'" style="height:20vw;"></iframe>'
-                document.getElementById("urlchangeHum").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikhum/'+ value +'\'" style="height:20vw;"></iframe>'
-                document.getElementById("urlchangeTemp").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktemp/'+ value +'\'" style="height:20vw;"></iframe>'
-                document.getElementById("urlchangeTds").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktds/'+ value +'\'" style="height:20vw;"></iframe>'
-                document.getElementById("urlchangeTurbidity").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikturbidity/'+ value +'\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangePh").innerHTML =
+                    '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikph/' + value +
+                    '\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeOx").innerHTML =
+                    '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikox/' + value +
+                    '\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeHum").innerHTML =
+                    '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikhum/' + value +
+                    '\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeTemp").innerHTML =
+                    '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktemp/' + value +
+                    '\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeTds").innerHTML =
+                    '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktds/' + value +
+                    '\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeTurbidity").innerHTML =
+                    '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikturbidity/' +
+                    value + '\'" style="height:20vw;"></iframe>'
             }
-
         </script>
 
         <script type="text/javascript">

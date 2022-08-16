@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GrafikController;
+use App\Http\Controllers\PoolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,12 +23,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', function () {
         return view('main');
     });
+
+    Route::prefix('/kolam')->group(function () {
+        Route::get('/', [PoolController::class, 'index'])->name('kolam');
+        Route::get('/create', [PoolController::class, 'create']);
+        Route::post('/store', [PoolController::class, 'store'])->name('kolam.store');
+        Route::get('/edit/{id}', [PoolController::class, 'edit'])->name('kolam.edit');
+        Route::post('/edit/{id}', [PoolController::class, 'update'])->name('kolam.update');
+        Route::post('/{id}', [PoolController::class, 'destroy'])->name('kolam.destroy');
+    });
+
     Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
     Route::get('/datasensor-table', function () {
         return view('datatable');
-    }); 
-    Route::get('/kolam', function () {
-        return view('kolam');
     });
     Route::get('/phgrafik', function () {
         return view('grafikph');

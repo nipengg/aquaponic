@@ -9,5 +9,12 @@ class Pool extends Model
 {
     use HasFactory;
 
-    protected $table = 'pools';
+    protected $fillable = [
+        'id',
+        'name',
+        'area',
+        'desc',
+    ];
+
+    protected $hidden = [];
 }
