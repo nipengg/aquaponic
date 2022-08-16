@@ -14,6 +14,7 @@ class CreateTotalDissolvedSolidsTable extends Migration
     public function up()
     {
         Schema::create('total_dissolved_solids', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedBigInteger('pool_id');
             $table->string('tds_val');
             $table->timestamps();

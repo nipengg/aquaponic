@@ -14,6 +14,7 @@ class CreatePhvalsTable extends Migration
     public function up()
     {
         Schema::create('phvals', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedBigInteger('pool_id');
             $table->string('ph_val');
             $table->timestamps();

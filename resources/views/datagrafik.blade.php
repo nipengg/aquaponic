@@ -1,98 +1,100 @@
 @extends('layout.topsideBar')
 
 @section('content')
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Grafik</h1>
+                    <div class="form-group">
+                        <label class="mt-3">Pilih Kolam</label>
+                        <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2" style="width: 100%;">
+
+                            @foreach ($kolam as $key)
+                                <option value="{{ $key->id }}">{{ $key->name }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
                 </div><!-- /.col -->
+
+
+
+               
+
+
+
+
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Grafik</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
         <div class="container-fluid">
             <!-- Info boxes -->
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">CPU Traffic</span>
-                            <span class="info-box-number">
-                                10
-                                <small>%</small>
-                            </span>
-                        </div>
-                        <!-- /.info-box-content -->
+            <div class="row" style="">
+                <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
+                    <div id="urlchangePh" class="info-box-content">
+                            <h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5>
+                            <iframe src="grafikph/1" style="height:20vw;"></iframe>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
-                <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box mb-3">
-                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Likes</span>
-                            <span class="info-box-number">41,410</span>
-                        </div>
-                        <!-- /.info-box-content -->
+                <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
+                    <div id="urlchangeOx" class="info-box-content">
+                        <h5 style="text-align: center; margin-bottom:10px;"><b> Oxygen </b></h5>
+                        <iframe src="grafikox/1" style="height:20vw;"></iframe>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
-
-                <!-- fix for small devices only -->
-                <div class="clearfix hidden-md-up"></div>
-
-                <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box mb-3">
-                        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Sales</span>
-                            <span class="info-box-number">760</span>
-                        </div>
-                        <!-- /.info-box-content -->
+                <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
+                    <div id="urlchangeHum" class="info-box-content">
+                        <h5 style="text-align: center; margin-bottom:10px;"><b> Humidity </b></h5>
+                        <iframe src="grafikhum/1" style="height:20vw;"></iframe>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
-                <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box mb-3">
-                        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">New Members</span>
-                            <span class="info-box-number">2,000</span>
-                        </div>
-                        <!-- /.info-box-content -->
+                <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
+                    <div id="urlchangeTemp" class="info-box-content">
+                        <h5 style="text-align: center; margin-bottom:10px;"><b> Temperature </b></h5>
+                        <iframe src="grafiktemp/1" style="height:20vw;"></iframe>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
+                <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
+                    <div id="urlchangeTds" class="info-box-content">
+                        <h5 style="text-align: center; margin-bottom:10px;"><b> TDS </b></h5>
+                        <iframe src="grafiktds/1" style="height:20vw;"></iframe>
+                    </div>
+                </div>
+                <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
+                    <div id="urlchangeTurbidity" class="info-box-content">
+                        <h5 style="text-align: center; margin-bottom:10px;"><b> Turbidity </b></h5>
+                        <iframe src="/grafikturbidity/1" style="height:20vw;"></iframe>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
+
+
         </div>
-        <!--/. container-fluid -->
-    </section>
+        <!-- /.content-header -->
 
 
-    <script type="text/javascript">
-        document.getElementById("TopTitle").innerHTML = "Data Grafik";
-        document.getElementById("dataSensor").innerHTML =
-            '<li class="nav-item menu-is-opening menu-open"><a href="#" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Data Sensor<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview"><li class="nav-item "><a href="/datasensor-table" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Tabel</p></a></li><li class="nav-item"><a href="/datasensor-grafik" class="nav-link active"><i class="far fa-circle nav-icon"></i><p>Grafik</p></a></li></ul></li>';
-    </script>
-@endsection
+        <script>
+            function handleSelectChange(event) {
+                var value = document.getElementById("pilihKolam").value;
+                document.getElementById("urlchangePh").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikph/'+ value +'\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeOx").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikox/'+ value +'\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeHum").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikhum/'+ value +'\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeTemp").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktemp/'+ value +'\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeTds").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktds/'+ value +'\'" style="height:20vw;"></iframe>'
+                document.getElementById("urlchangeTurbidity").innerHTML = '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikturbidity/'+ value +'\'" style="height:20vw;"></iframe>'
+            }
+
+        </script>
+
+        <script type="text/javascript">
+            document.getElementById("TopTitle").innerHTML = "Data Grafik";
+        </script>
+    @endsection

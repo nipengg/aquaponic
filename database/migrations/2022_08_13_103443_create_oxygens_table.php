@@ -14,6 +14,7 @@ class CreateOxygensTable extends Migration
     public function up()
     {
         Schema::create('oxygens', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedBigInteger('pool_id');
             $table->string('oxygen_val');
             $table->timestamps();

@@ -14,6 +14,7 @@ class CreateTurbiditiesTable extends Migration
     public function up()
     {
         Schema::create('turbidities', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedBigInteger('pool_id');
             $table->string('turbidities_val');
             $table->timestamps();

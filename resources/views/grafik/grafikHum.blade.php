@@ -1,16 +1,10 @@
-<?php
-$koneksi    = mysqli_connect("localhost", "root", "", "aquaponic");
-$phValue    = mysqli_query($koneksi, "SELECT * FROM temperatures WHERE pool_id = '1' limit 6");
-$datas = array();
-?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <title>Chartjs, PHP dan MySQL Demo Grafik Garis</title>
-  <script src="Chart.js"></script>
+  <title></title>
+  <script src="{{ asset('grafik/Chart.js') }}"></script>
   <style type="text/css">
     .container {
       width: 100%;
@@ -24,26 +18,15 @@ $datas = array();
   <div class="container">
     <canvas id="linechart"></canvas>
   </div>
-  <?php
-  if (mysqli_num_rows($phValue) > 0) {
-    while ($dataSementara = mysqli_fetch_assoc($phValue)) {
-        $datas[] = $dataSementara;
-    }
-  }
-  $datas = json_encode($datas);
-  $datas = json_decode($datas);
-  $nilaiPh = array();
-  $no = 1;
 
-  for($i=1;$i<=6;$i++)
-  {
-    $nilaiPh[$i] = 0;
+  <h4 id="cek"></h4>
+  <script>
+    var sites = {!! json_encode($humidity->toArray()) !!};
+    var nilai =[];
+    for(var i=0; i<sites.length; i++){
+      nilai[i] = sites[i].humidity_val;
     }
-  foreach ($datas as $data) {
-    $nilaiPh[$no] = $data->ph_val;
-    $no++;
-  }
-  ?>
+  </script>
 
 
 </body>
@@ -53,18 +36,16 @@ $datas = array();
 <script type="text/javascript">
   var ctx = document.getElementById("linechart").getContext("2d");
   var data = {
-    labels: ["Waktu-1", "Waktu-2", "Waktu-3", "Waktu-4", "Waktu-5", "Waktu-6"],
+    labels: ["Waktu-1", "Waktu-2", "Waktu-3", "Waktu-4", "Waktu-5"],
     datasets: [{
-        label: "pH Air",
+        label: "Humidity",
         fill: false,
         lineTension: 0.1,
         backgroundColor: "#F07124",
         borderColor: "#F07124",
         pointHoverBackgroundColor: "#F07124",
         pointHoverBorderColor: "#F07124",
-        data: [<?php
-                echo '"' . $nilaiPh[1] . '","' . $nilaiPh[2] . '","' . $nilaiPh[3] . '","' . $nilaiPh[4] . '","' . $nilaiPh[5] . '","' . $nilaiPh[6] . '"';
-                ?>]
+        data: [nilai[0],nilai[1],nilai[2],nilai[3],nilai[4]]
       }
 
     ]
@@ -93,3 +74,5 @@ $datas = array();
     }
   });
 </script>
+
+       
