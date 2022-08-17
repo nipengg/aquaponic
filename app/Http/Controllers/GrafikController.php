@@ -52,6 +52,8 @@ class GrafikController extends Controller
     public function table(Request $request)
     {
         $id = $request->pool;
+        $from = $request->from;
+        $to = $request->to;
 
         if ($id == NULL) {
             $pool = Pool::all();
@@ -59,7 +61,11 @@ class GrafikController extends Controller
             $id = $first->id;
         }
 
-        $data = PoolData::where("pool_id", $id)->get();
+        if ($from == NULL && $to == NULL) {
+            $data = PoolData::where("pool_id", $id)->get();
+        } else {
+            $data = PoolData::where("pool_id", $id)->whereBetween("created_at", [$from, $to])->get();
+        }
 
         $kolam = Pool::all();
 
@@ -67,6 +73,8 @@ class GrafikController extends Controller
             'kolam' => $kolam,
             'data' => $data,
             'id' => $id,
+            'from' => $from,
+            'to' => $to,
         ]);
     }
 }
