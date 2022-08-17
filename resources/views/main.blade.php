@@ -106,11 +106,6 @@
         </div>
         <!--/. container-fluid -->
 
-        <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
-        <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js?v=3.2.0') }}"></script>
-        <script src="{{ asset('AdminLTE/dist/js/demo.js') }}"></script>
 
         <script type="text/javascript">
             var json = "2022-08-17T11:10:50.000000Z";

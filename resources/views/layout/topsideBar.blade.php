@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
     <script src="{{ asset('AdminLTE/grafik/Chart.js') }}"></script>
     <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
 
 </head>
 
@@ -161,7 +163,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
+
     <!-- Bootstrap -->
     <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- overlayScrollbars -->
@@ -174,7 +176,7 @@
     <script src="{{ asset('AdminLTE/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
     <script src="{{ asset('AdminLTE/plugins/jquery-mapael/maps/usa_states.min.js') }}"></script>
     <!-- ChartJS -->
-    <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
+    {{-- <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script> --}}
 
     <!-- DataTables  & Plugins -->
     <script src="{{ asset('AdminLTE/plugins/datatables/jquery.dataTables.min.js') }}"></script>

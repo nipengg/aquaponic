@@ -12,7 +12,8 @@
                             style="width: 100%;">
 
                             @foreach ($kolam as $key)
-                                <option {{ $id == $key->id ? "selected" : "" }} value="{{ $key->id }}">{{ $key->name }}</option>
+                                <option {{ $id == $key->id ? 'selected' : '' }} value="{{ $key->id }}">
+                                    {{ $key->name }}</option>
                             @endforeach
 
                         </select>
@@ -28,7 +29,7 @@
         </div><!-- /.container-fluid -->
     </div>
 
-   
+
     <!-- PH CHART -->
     <div class="container-fluid" style="padding: 20px; margin-bottom:-40px;">
         <div class="card card-info">
@@ -186,15 +187,8 @@
         <!-- /.card -->
     </div>
 
-    <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js?v=3.2.0') }}"></script>
-    <script src="{{ asset('AdminLTE/dist/js/demo.js') }}"></script>
-
     <script type="text/javascript">
-
-         function handleSelectChange(event) {
+        function handleSelectChange(event) {
             var idUrl = document.getElementById("pilihKolam").value;
             window.location.href = "{{ url('/datasensor-grafik/?id=') }}" + idUrl;
         }

@@ -34,13 +34,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
     Route::get('/datasensor-table', [GrafikController::class, 'table']);
-
-    Route::get('/grafikph/{id}', [GrafikController::class, 'grafikph']);
-    Route::get('/grafikox/{id}', [GrafikController::class, 'grafikOx']);
-    Route::get('/grafikhum/{id}', [GrafikController::class, 'grafikHum']);
-    Route::get('/grafiktemp/{id}', [GrafikController::class, 'grafikTemp']);
-    Route::get('/grafiktds/{id}', [GrafikController::class, 'grafikTDS']);
-    Route::get('/grafikturbidity/{id}', [GrafikController::class, 'grafikTurbidity']);
 });
 
 Auth::routes();
