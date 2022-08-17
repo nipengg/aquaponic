@@ -37,7 +37,19 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Data Kolam</h3>
+                            <p class="card-title">Data Kolam</p>
+                            <div class="float-right">
+                                <div id="date_filter" class="row">
+                                    <input value="{{ $from }}" type="date" id="min" name="min"
+                                        class="form-control col-sm" /> &nbsp; &nbsp;
+                                    To &nbsp; &nbsp; <input value="{{ $to }}" type="date" id="max" name="max"
+                                        class="form-control col-sm" /> &nbsp; &nbsp;
+                                    <button onclick="handleDateChange()" type="button"
+                                        class="btn btn-success col-sm">Filter</button> &nbsp; &nbsp;
+                                    <button type="button" onclick="handleSelectChange()" class="btn btn-danger">
+                                        Clear Filter</a>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -99,5 +111,12 @@
         function handleSelectChange(event) {
             window.location.href = "{{ url('/datasensor-table/?pool=') }}" + $("#pilihKolam").val();
         }
+
+        function handleDateChange(event) {
+            var min = document.getElementById("min").value;
+            var max = document.getElementById("max").value;
+            window.location.href = "{{ url('/datasensor-table/?pool=') }}" + $("#pilihKolam").val() + ('&from=') + min + (
+                '&to=') + max;
+        };
     </script>
 @endsection
