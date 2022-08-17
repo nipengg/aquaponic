@@ -27,8 +27,7 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
-    <script src="{{ asset('AdminLTE/grafik/Chart.js') }}"></script>
-    <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+
 
 </head>
 
@@ -202,6 +201,7 @@
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
+        
     </script>
 </body>
 
