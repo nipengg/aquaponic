@@ -19,7 +19,7 @@ class GrafikController extends Controller
     public function grafik(Request $request)
     {
         $id = $request->id;
-        if($id == NULL){
+        if ($id == NULL) {
             $pool = Pool::all();
             $first = $pool->first();
             $id = $first->id;
@@ -35,7 +35,7 @@ class GrafikController extends Controller
         $turbidity = PoolData::select('turbidities_val', 'created_at')->where("pool_id", $id)->get();
 
 
-        return view('datagrafik', [
+        return view('dataSensor.datagrafik', [
             'kolam' => $kolam,
             'ph' => $ph,
             'oxygen' => $oxygen,
@@ -44,7 +44,7 @@ class GrafikController extends Controller
             'temperature' => $temperature,
             'turbidity' => $turbidity,
             'id' => $id
-            
+
         ]);
     }
 
@@ -69,7 +69,7 @@ class GrafikController extends Controller
 
         $kolam = Pool::all();
 
-        return view('datatable', [
+        return view('dataSensor.datatable', [
             'kolam' => $kolam,
             'data' => $data,
             'id' => $id,
