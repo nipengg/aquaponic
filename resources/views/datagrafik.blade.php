@@ -6,13 +6,13 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Grafik</h1>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: -10px">
                         <label class="mt-3">Pilih Kolam</label>
                         <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2"
                             style="width: 100%;">
 
                             @foreach ($kolam as $key)
-                                <option value="{{ $key->id }}">{{ $key->name }}</option>
+                                <option {{ $id == $key->id ? "selected" : "" }} value="{{ $key->id }}">{{ $key->name }}</option>
                             @endforeach
 
                         </select>
@@ -28,75 +28,408 @@
         </div><!-- /.container-fluid -->
     </div>
 
-    <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row" style="">
-            <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
-                <div id="urlchangePh" class="info-box-content">
-                    <h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5>
-                    <iframe src="grafikph/1" style="height:20vw;"></iframe>
+   
+    <!-- PH CHART -->
+    <div class="container-fluid" style="padding: 20px; margin-bottom:-40px;">
+        <div class="card card-info">
+            <div class="card-header" style="background-color:#343A40;">
+                <h3 class="card-title">PH Chart</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
             </div>
-            <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
-                <div id="urlchangeOx" class="info-box-content">
-                    <h5 style="text-align: center; margin-bottom:10px;"><b> Oxygen </b></h5>
-                    <iframe src="grafikox/1" style="height:20vw;"></iframe>
+            <div class="card-body">
+                <div class="chart">
+                    <canvas id="lineChart"
+                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
             </div>
-            <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
-                <div id="urlchangeHum" class="info-box-content">
-                    <h5 style="text-align: center; margin-bottom:10px;"><b> Humidity </b></h5>
-                    <iframe src="grafikhum/1" style="height:20vw;"></iframe>
-                </div>
-            </div>
-            <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
-                <div id="urlchangeTemp" class="info-box-content">
-                    <h5 style="text-align: center; margin-bottom:10px;"><b> Temperature </b></h5>
-                    <iframe src="grafiktemp/1" style="height:20vw;"></iframe>
-                </div>
-            </div>
-            <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
-                <div id="urlchangeTds" class="info-box-content">
-                    <h5 style="text-align: center; margin-bottom:10px;"><b> TDS </b></h5>
-                    <iframe src="grafiktds/1" style="height:20vw;"></iframe>
-                </div>
-            </div>
-            <div class="info-box col-sm" style="margin-right: 10px; height:17vw;">
-                <div id="urlchangeTurbidity" class="info-box-content">
-                    <h5 style="text-align: center; margin-bottom:10px;"><b> Turbidity </b></h5>
-                    <iframe src="/grafikturbidity/1" style="height:20vw;"></iframe>
-                </div>
-            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.row -->
-
-
+        <!-- /.card -->
     </div>
-    <!-- /.content-header -->
+
+    <!-- Temperature CHART -->
+    <div class="container-fluid" style="padding: 20px;margin-bottom:-40px;">
+        <div class="card card-info">
+            <div class="card-header" style="background-color:#343A40;">
+                <h3 class="card-title">Temperature Chart</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart">
+                    <canvas id="temperChart"
+                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <!-- Humidity CHART -->
+    <div class="container-fluid" style="padding: 20px;margin-bottom:-40px;">
+        <div class="card card-info">
+            <div class="card-header" style="background-color:#343A40;">
+                <h3 class="card-title">Humidity Chart</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart">
+                    <canvas id="humChart"
+                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <!-- Oxygen CHART -->
+    <div class="container-fluid" style="padding: 20px;margin-bottom:-40px;">
+        <div class="card card-info">
+            <div class="card-header" style="background-color:#343A40;">
+                <h3 class="card-title">Oxygen Chart</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart">
+                    <canvas id="OxyChart"
+                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
 
 
-    <script>
-        function handleSelectChange(event) {
-            var value = document.getElementById("pilihKolam").value;
-            document.getElementById("urlchangePh").innerHTML =
-                '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikph/' + value +
-                '\'" style="height:20vw;"></iframe>'
-            document.getElementById("urlchangeOx").innerHTML =
-                '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikox/' + value +
-                '\'" style="height:20vw;"></iframe>'
-            document.getElementById("urlchangeHum").innerHTML =
-                '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikhum/' + value +
-                '\'" style="height:20vw;"></iframe>'
-            document.getElementById("urlchangeTemp").innerHTML =
-                '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktemp/' + value +
-                '\'" style="height:20vw;"></iframe>'
-            document.getElementById("urlchangeTds").innerHTML =
-                '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafiktds/' + value +
-                '\'" style="height:20vw;"></iframe>'
-            document.getElementById("urlchangeTurbidity").innerHTML =
-                '<h5 style="text-align: center; margin-bottom:10px;"><b> pH </b></h5><iframe src="grafikturbidity/' +
-                value + '\'" style="height:20vw;"></iframe>'
+    <!-- TDS CHART -->
+    <div class="container-fluid" style="padding: 20px;margin-bottom:-40px;">
+        <div class="card card-info">
+            <div class="card-header" style="background-color:#343A40;">
+                <h3 class="card-title">TDS Chart</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart">
+                    <canvas id="TdsChart"
+                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <!-- Turbidity CHART -->
+    <div class="container-fluid" style="padding: 20px;margin-bottom:-40px;">
+        <div class="card card-info">
+            <div class="card-header" style="background-color:#343A40;">
+                <h3 class="card-title">Turbidity Chart</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart">
+                    <canvas id="TurbiChart"
+                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+
+    <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js?v=3.2.0') }}"></script>
+    <script src="{{ asset('AdminLTE/dist/js/demo.js') }}"></script>
+
+    <script type="text/javascript">
+
+         function handleSelectChange(event) {
+            var idUrl = document.getElementById("pilihKolam").value;
+            window.location.href = "{{ url('/datasensor-grafik/?id=') }}" + idUrl;
         }
+
+        // PH Data
+        var sitesPH = {!! json_encode($ph->toArray()) !!};
+        var nilaiPh = [];
+        for (var i = 0; i < sitesPH.length; i++) {
+            nilaiPh[i] = sitesPH[i].ph_val;
+        }
+
+        // Temp Data
+        var sitesTemp = {!! json_encode($temperature->toArray()) !!};
+        var nilaiTemp = [];
+        for (var i = 0; i < sitesTemp.length; i++) {
+            nilaiTemp[i] = sitesTemp[i].temper_val;
+        }
+        // Hum Data
+        var sitesHum = {!! json_encode($humidity->toArray()) !!};
+        var nilaiHum = [];
+        for (var i = 0; i < sitesHum.length; i++) {
+            nilaiHum[i] = sitesHum[i].humidity_val;
+        }
+        // Oxygen Data
+        var sitesOxy = {!! json_encode($oxygen->toArray()) !!};
+        var nilaiOxy = [];
+        for (var i = 0; i < sitesOxy.length; i++) {
+            nilaiOxy[i] = sitesOxy[i].oxygen_val;
+        }
+        // TDS Data
+        var sitesTds = {!! json_encode($TDS->toArray()) !!};
+        var nilaiTds = [];
+        for (var i = 0; i < sitesTds.length; i++) {
+            nilaiTds[i] = sitesTds[i].tds_val;
+        }
+        // Turbidities Data
+        var sitesTurbi = {!! json_encode($turbidity->toArray()) !!};
+        var nilaiTurbi = [];
+        for (var i = 0; i < sitesTurbi.length; i++) {
+            nilaiTurbi[i] = sitesTurbi[i].turbidities_val;
+        }
+
+        //--------------
+        //- PH CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var lineChartCanvasPh = $('#lineChart').get(0).getContext('2d')
+
+        var lineChartDataPh = {
+            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            datasets: [{
+                label: 'pH',
+                fill: false,
+                tension: 0,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107',
+                pointRadius: true,
+                hoverRadius: 8,
+                borderWidth: 3,
+                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
+            }, ]
+        }
+
+        var lineChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false,
+                    }
+                }]
+            },
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(lineChartCanvasPh, {
+            type: 'line',
+            data: lineChartDataPh,
+            options: lineChartOptions
+        })
+
+
+        //--------------
+        //- Temperature CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var lineChartCanvasTemp = $('#temperChart').get(0).getContext('2d')
+
+        var lineChartDataTemp = {
+            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            datasets: [{
+                label: 'Temperature',
+                fill: false,
+                tension: 0,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107',
+                pointRadius: true,
+                hoverRadius: 8,
+                borderWidth: 3,
+                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
+            }, ]
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(lineChartCanvasTemp, {
+            type: 'line',
+            data: lineChartDataTemp,
+            options: lineChartOptions
+        })
+        //--------------
+        //- Humidity CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var lineChartCanvasHum = $('#humChart').get(0).getContext('2d')
+
+        var lineChartDataHum = {
+            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            datasets: [{
+                label: 'Humidity',
+                fill: false,
+                tension: 0,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107',
+                pointRadius: true,
+                hoverRadius: 8,
+                borderWidth: 3,
+                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
+            }, ]
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(lineChartCanvasHum, {
+            type: 'line',
+            data: lineChartDataHum,
+            options: lineChartOptions
+        })
+
+
+        //--------------
+        //- Oxygen CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var lineChartCanvasOxy = $('#OxyChart').get(0).getContext('2d')
+
+        var lineChartDataOxy = {
+            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            datasets: [{
+                label: 'Oxyidity',
+                fill: false,
+                tension: 0,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107',
+                pointRadius: true,
+                hoverRadius: 8,
+                borderWidth: 3,
+                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
+            }, ]
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(lineChartCanvasOxy, {
+            type: 'line',
+            data: lineChartDataOxy,
+            options: lineChartOptions
+        })
+
+        //--------------
+        //- TDS CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var lineChartCanvasTds = $('#TdsChart').get(0).getContext('2d')
+
+        var lineChartDataTds = {
+            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            datasets: [{
+                label: 'TDS',
+                fill: false,
+                tension: 0,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107',
+                pointRadius: true,
+                hoverRadius: 8,
+                borderWidth: 3,
+                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
+            }, ]
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(lineChartCanvasTds, {
+            type: 'line',
+            data: lineChartDataTds,
+            options: lineChartOptions
+        })
+        //--------------
+        //- Turbidity CHART -
+        //--------------
+
+        // Get context with jQuery - using jQuery's .get() method.
+        var lineChartCanvasTurbi = $('#TurbiChart').get(0).getContext('2d')
+
+        var lineChartDataTurbi = {
+            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            datasets: [{
+                label: 'Turbi',
+                fill: false,
+                tension: 0,
+                backgroundColor: '#FFC107',
+                borderColor: '#FFC107',
+                pointRadius: true,
+                hoverRadius: 8,
+                borderWidth: 3,
+                data: [nilaiTurbi[0], nilaiTurbi[1], nilaiTurbi[2], nilaiTurbi[3], nilaiTurbi[4]]
+            }, ]
+        }
+
+        // This will get the first returned node in the jQuery collection.
+        new Chart(lineChartCanvasTurbi, {
+            type: 'line',
+            data: lineChartDataTurbi,
+            options: lineChartOptions
+        })
     </script>
 
     <script type="text/javascript">

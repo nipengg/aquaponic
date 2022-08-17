@@ -16,7 +16,7 @@
 <body>
 
     <div class="container">
-        <canvas id="linechart"></canvas>
+        <canvas style="heigth:500px;" id="linechart"></canvas>
     </div>
 
     <h4 id="cek"></h4>

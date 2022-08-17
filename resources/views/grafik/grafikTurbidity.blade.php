@@ -5,12 +5,7 @@
   <meta charset="utf-8">
   <title></title>
   <script src="{{ asset('grafik/Chart.js') }}"></script>
-  <style type="text/css">
-    .container {
-      width: 100%;
-      margin: 15px auto;
-    }
-  </style>
+ 
 </head>
 
 <body>

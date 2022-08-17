@@ -20,10 +20,12 @@ class MainController extends Controller
         $users = User::all();
         $users_count = $users->count();
 
+
         return view('main', [
             'pools_count' => $pools_count,
             'pools_data_count' => $pools_data_count,
             'users_count' => $users_count,
+            'pools_data' => $pools_data
         ]);
     }
 }

@@ -35,10 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
     Route::get('/datasensor-table', [GrafikController::class, 'table']);
 
-    Route::get('/phgrafik', function () {
-        return view('grafikph');
-    });
-
     Route::get('/grafikph/{id}', [GrafikController::class, 'grafikph']);
     Route::get('/grafikox/{id}', [GrafikController::class, 'grafikOx']);
     Route::get('/grafikhum/{id}', [GrafikController::class, 'grafikHum']);

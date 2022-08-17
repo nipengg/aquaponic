@@ -16,47 +16,38 @@ use Illuminate\Support\Facades\DB;
 class GrafikController extends Controller
 {
 
-    public function grafik()
+    public function grafik(Request $request)
     {
+        $id = $request->id;
+        if($id == NULL){
+            $pool = Pool::all();
+            $first = $pool->first();
+            $id = $first->id;
+        }
+
+
         $kolam = Pool::all();
-
-        return view('datagrafik', ['kolam' => $kolam]);
-    }
-    public function grafikph($id)
-    {
         $ph = PoolData::select('ph_val', 'created_at')->where("pool_id", $id)->get();
-        return view('grafik.grafikph', ['ph' => $ph]);
-    }
-    public function grafikOx($id)
-    {
         $oxygen = PoolData::select('oxygen_val', 'created_at')->where("pool_id", $id)->get();
-
-        return view('grafik.grafikOx', ['oxygen' => $oxygen]);
-    }
-    public function grafikHum($id)
-    {
         $humidity = PoolData::select('humidity_val', 'created_at')->where("pool_id", $id)->get();
-
-        return view('grafik.grafikHum', ['humidity' => $humidity]);
-    }
-    public function grafikTDS($id)
-    {
         $TDS = PoolData::select('tds_val', 'created_at')->where("pool_id", $id)->get();
-
-        return view('grafik.grafikTDS', ['TDS' => $TDS]);
-    }
-    public function grafikTemp($id)
-    {
         $temperature = PoolData::select('temper_val', 'created_at')->where("pool_id", $id)->get();
-
-        return view('grafik.grafikTemp', ['temperature' => $temperature]);
-    }
-    public function grafikTurbidity($id)
-    {
         $turbidity = PoolData::select('turbidities_val', 'created_at')->where("pool_id", $id)->get();
 
-        return view('grafik.grafikTurbidity', ['turbidity' => $turbidity]);
+
+        return view('datagrafik', [
+            'kolam' => $kolam,
+            'ph' => $ph,
+            'oxygen' => $oxygen,
+            'humidity' => $humidity,
+            'TDS' => $TDS,
+            'temperature' => $temperature,
+            'turbidity' => $turbidity,
+            'id' => $id
+            
+        ]);
     }
+
 
     public function table(Request $request)
     {
