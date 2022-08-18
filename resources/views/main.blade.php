@@ -126,50 +126,54 @@
 
                                         <div id="ph{{ $pool->id }}" class="progress-group">
                                             PH
-                                            <span class="float-right"><b>7</b>/14</span>
+                                            <span class="float-right"><b>0</b>/0</span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" style="background-color:#fca903; width: 80%"></div>
+                                                <div class="progress-bar" style="background-color:#fca903; width: 0%">
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /.progress-group -->
 
                                         <div id="Temp{{ $pool->id }}" class="progress-group">
                                             Temperature
-                                            <span class="float-right"><b>310</b>/400</span>
+                                            <span class="float-right"><b>0</b>/0</span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar bg-danger" style="width: 75%"></div>
+                                                <div class="progress-bar bg-danger" style="width: 0%"></div>
                                             </div>
                                         </div>
 
                                         <!-- /.progress-group -->
                                         <div id="Hum{{ $pool->id }}" class="progress-group">
                                             Humidity
-                                            <span class="float-right"><b>480</b>/800</span>
+                                            <span class="float-right"><b>0</b>/0</span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar bg-primary" style="width: 60%"></div>
+                                                <div class="progress-bar bg-primary" style="width: 0%"></div>
                                             </div>
                                         </div>
 
                                         <!-- /.progress-group -->
                                         <div id="Tds{{ $pool->id }}" class="progress-group">
                                             Total Dissolved Solid (TDS)
-                                            <span class="float-right"><b>250</b>/500</span>
+                                            <span class="float-right"><b>0</b>/0</span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" style="background-color:#34ebbd; width: 50%"></div>
+                                                <div class="progress-bar" style="background-color:#34ebbd; width: 0%">
+                                                </div>
                                             </div>
                                         </div>
                                         <div id="Tur{{ $pool->id }}" class="progress-group">
                                             Turbidity
-                                            <span class="float-right"><b>250</b>/500</span>
+                                            <span class="float-right"><b>0</b>/0</span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" style="background-color:#6e4d1d; width: 50%"></div>
+                                                <div class="progress-bar" style="background-color:#6e4d1d; width: 0%">
+                                                </div>
                                             </div>
                                         </div>
                                         <div id="Oxy{{ $pool->id }}" class="progress-group">
                                             Dissolved Oxygen
-                                            <span class="float-right"><b>250</b>/500</span>
+                                            <span class="float-right"><b>0</b>/0</span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar" style="background-color:#5cceff; width: 50%"></div>
+                                                <div class="progress-bar" style="background-color:#5cceff; width: 0%">
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /.progress-group -->
@@ -186,9 +190,8 @@
                                 <div class="row">
                                     <div id="statusPh{{ $pool->id }}" class="col-sm-2 col-6">
                                         <div class="description-block border-right">
-                                            <span class="description-percentage text-success"><i
-                                                    class="fas fa-caret-up"></i> 17%</span>
-                                            <h5 class="description-header">$35,210.43</h5>
+                                            <span class="description-percentage text-danger"> No Data Available</span>
+                                            <h5 class="description-header">0</h5>
                                             <span class="description-text">PH</span>
                                         </div>
                                         <!-- /.description-block -->
@@ -196,9 +199,8 @@
                                     <!-- /.col -->
                                     <div id="statusTemp{{ $pool->id }}" class="col-sm-2 col-6">
                                         <div class="description-block border-right">
-                                            <span class="description-percentage text-warning"><i
-                                                    class="fas fa-caret-left"></i> 0%</span>
-                                            <h5 class="description-header">$10,390.90</h5>
+                                            <span class="description-percentage text-danger"> No Data Available</span>
+                                            <h5 class="description-header">0</h5>
                                             <span class="description-text">TEMPERATURE</span>
                                         </div>
                                         <!-- /.description-block -->
@@ -206,27 +208,24 @@
                                     <!-- /.col -->
                                     <div id="statusHum{{ $pool->id }}" class="col-sm-2 col-6">
                                         <div class="description-block border-right">
-                                            <span class="description-percentage text-success"><i
-                                                    class="fas fa-caret-up"></i> 20%</span>
-                                            <h5 class="description-header">$24,813.53</h5>
+                                            <span class="description-percentage text-danger"> No Data Available</span>
+                                            <h5 class="description-header">0</h5>
                                             <span class="description-text">HUMIDITY</span>
                                         </div>
                                         <!-- /.description-block -->
                                     </div>
                                     <div id="statusTds{{ $pool->id }}" class="col-sm-2 col-6">
                                         <div class="description-block border-right">
-                                            <span class="description-percentage text-success"><i
-                                                    class="fas fa-caret-up"></i> 20%</span>
-                                            <h5 class="description-header">$24,813.53</h5>
+                                            <span class="description-percentage text-danger"> No Data Available</span>
+                                            <h5 class="description-header">0</h5>
                                             <span class="description-text">TOTAL DISSOLVED SOLID</span>
                                         </div>
                                         <!-- /.description-block -->
                                     </div>
                                     <div id="statusTur{{ $pool->id }}" class="col-sm-2 col-6">
                                         <div class="description-block border-right">
-                                            <span class="description-percentage text-success"><i
-                                                    class="fas fa-caret-up"></i> 20%</span>
-                                            <h5 class="description-header">$24,813.53</h5>
+                                            <span class="description-percentage text-danger"> No Data Available</span>
+                                            <h5 class="description-header">0</h5>
                                             <span class="description-text">TURBIDITY</span>
                                         </div>
                                         <!-- /.description-block -->
@@ -234,9 +233,8 @@
                                     <!-- /.col -->
                                     <div id="statusOxy{{ $pool->id }}" class="col-sm-2 col-6">
                                         <div class="description-block">
-                                            <span class="description-percentage text-danger"><i
-                                                    class="fas fa-caret-down"></i> 18%</span>
-                                            <h5 class="description-header">1200</h5>
+                                            <span class="description-percentage text-danger"> No Data Available</span>
+                                            <h5 class="description-header">0</h5>
                                             <span class="description-text">DISSOLVED OXYGEN</span>
                                         </div>
                                         <!-- /.description-block -->
@@ -268,7 +266,7 @@
                     var idPool = document.getElementById(namaidpool).value;
 
                     // change the data GetElementById
-                    //Ph 
+                    //Ph
                     var tempPh = "ph" + x;
                     var StatusPh = "statusPh" + x;
                     //temp
@@ -323,7 +321,7 @@
                             var lastPH = poolsDataAtribut[i].ph_val;
                             var progressPh = (poolsDataAtribut[i].ph_val / 14) * 100;
 
-                            if (progressPh < 48,5 || progressPh > 50)
+                            if (progressPh < 48, 5 || progressPh > 50)
                                 var phStatus = "Not Ideal Score";
                             else
                                 var phStatus = "Good PH Score";
@@ -373,7 +371,7 @@
                             else
                                 var OxyStatus = "Good Oxy Score";
 
-                            
+
 
                             // Progress Bar
                             //Ph
@@ -381,7 +379,8 @@
                                 '</b>/14</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#fca903; width: ' +
                                 progressPh + '%"></div></div>';
                             //Temp
-                            document.getElementById(tempTemp).innerHTML = 'Temperature (Celcius) <span class="float-right"><b>' + lastTemp +
+                            document.getElementById(tempTemp).innerHTML = 'Temperature (Celcius) <span class="float-right"><b>' +
+                                lastTemp +
                                 '</b>/100</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#DC3545; width: ' +
                                 progressTemp + '%"></div></div>';
                             //Humidity
@@ -389,7 +388,8 @@
                                 '</b>/100</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
                                 progressHum + '%"></div></div>';
                             //Tds
-                            document.getElementById(tempTds).innerHTML = 'Total Dissolved Solid (TDS)<span class="float-right"><b>' + lastTds +
+                            document.getElementById(tempTds).innerHTML = 'Total Dissolved Solid (TDS)<span class="float-right"><b>' +
+                                lastTds +
                                 '</b>/1500</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
                                 progressTds + '%"></div></div>';
                             //Turbidity
@@ -401,14 +401,32 @@
                                 '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
                                 progressOxy + '%"></div></div>';
 
-                            
+
                             // Status Data
-                            document.getElementById(StatusPh).innerHTML = '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>'+ phStatus + '</span><h5 class="description-header">' + lastPH + '</h5><span class="description-text">PH</span></div>';
-                            document.getElementById(StatusTemp).innerHTML = '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>'+ TempStatus + '</span><h5 class="description-header">' + lastTemp + '</h5><span class="description-text">Temp</span></div>';
-                            document.getElementById(StatusHum).innerHTML = '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>'+ HumStatus + '</span><h5 class="description-header">' + lastHum + '</h5><span class="description-text">Hum</span></div>';
-                            document.getElementById(StatusTds).innerHTML = '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>'+ TdsStatus + '</span><h5 class="description-header">' + lastTds + '</h5><span class="description-text">Tds</span></div>';
-                            document.getElementById(StatusTur).innerHTML = '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>'+ TurStatus + '</span><h5 class="description-header">' + lastTur + '</h5><span class="description-text">Tur</span></div>';
-                            document.getElementById(StatusOxy).innerHTML = '<div class="description-block"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>'+ OxyStatus + '</span><h5 class="description-header">' + lastOxy + '</h5><span class="description-text">Oxy</span></div>';
+                            document.getElementById(StatusPh).innerHTML =
+                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                phStatus + '</span><h5 class="description-header">' + lastPH +
+                                '</h5><span class="description-text">PH</span></div>';
+                            document.getElementById(StatusTemp).innerHTML =
+                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                TempStatus + '</span><h5 class="description-header">' + lastTemp +
+                                '</h5><span class="description-text">Temp</span></div>';
+                            document.getElementById(StatusHum).innerHTML =
+                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                HumStatus + '</span><h5 class="description-header">' + lastHum +
+                                '</h5><span class="description-text">Hum</span></div>';
+                            document.getElementById(StatusTds).innerHTML =
+                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                TdsStatus + '</span><h5 class="description-header">' + lastTds +
+                                '</h5><span class="description-text">Tds</span></div>';
+                            document.getElementById(StatusTur).innerHTML =
+                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                TurStatus + '</span><h5 class="description-header">' + lastTur +
+                                '</h5><span class="description-text">Tur</span></div>';
+                            document.getElementById(StatusOxy).innerHTML =
+                                '<div class="description-block"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                OxyStatus + '</span><h5 class="description-header">' + lastOxy +
+                                '</h5><span class="description-text">Oxy</span></div>';
 
                         }
                     }
@@ -423,72 +441,72 @@
                     var lineChartDataPh = {
                         labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
                         datasets: [{
-                            label: 'pH',
-                            fill: false,
-                            tension: 0,
-                            backgroundColor: '#fca903',
-                            borderColor: '#fca903',
-                            pointRadius: true,
-                            hoverRadius: 8,
-                            borderWidth: 3,
-                            data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
-                        },
-                        {
-                            label: 'Temperature',
-                            fill: false,
-                            tension: 0,
-                            backgroundColor: '#DC3545',
-                            borderColor: '#DC3545',
-                            pointRadius: true,
-                            hoverRadius: 8,
-                            borderWidth: 3,
-                            data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
-                        }, 
-                        {
-                            label: 'Humidity',
-                            fill: false,
-                            tension: 0,
-                            backgroundColor: '#257CFF',
-                            borderColor: '#257CFF',
-                            pointRadius: true,
-                            hoverRadius: 8,
-                            borderWidth: 3,
-                            data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
-                        }, 
-                        {
-                            label: 'Total Dissolved Solid',
-                            fill: false,
-                            tension: 0,
-                            backgroundColor: '#34ebbd',
-                            borderColor: '#34ebbd',
-                            pointRadius: true,
-                            hoverRadius: 8,
-                            borderWidth: 3,
-                            data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
-                        }, 
-                        {
-                            label: 'Turbidity',
-                            fill: false,
-                            tension: 0,
-                            backgroundColor: '#6e4d1d',
-                            borderColor: '#6e4d1d',
-                            pointRadius: true,
-                            hoverRadius: 8,
-                            borderWidth: 3,
-                            data: [nilaiTur[0], nilaiTur[1], nilaiTur[2], nilaiTur[3], nilaiTur[4]]
-                        }, 
-                        {
-                            label: 'Dissolved Oxygen',
-                            fill: false,
-                            tension: 0,
-                            backgroundColor: '#5cceff',
-                            borderColor: '#5cceff',
-                            pointRadius: true,
-                            hoverRadius: 8,
-                            borderWidth: 3,
-                            data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
-                        }, 
-                    ]
+                                label: 'pH',
+                                fill: false,
+                                tension: 0,
+                                backgroundColor: '#fca903',
+                                borderColor: '#fca903',
+                                pointRadius: true,
+                                hoverRadius: 8,
+                                borderWidth: 3,
+                                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
+                            },
+                            {
+                                label: 'Temperature',
+                                fill: false,
+                                tension: 0,
+                                backgroundColor: '#DC3545',
+                                borderColor: '#DC3545',
+                                pointRadius: true,
+                                hoverRadius: 8,
+                                borderWidth: 3,
+                                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
+                            },
+                            {
+                                label: 'Humidity',
+                                fill: false,
+                                tension: 0,
+                                backgroundColor: '#257CFF',
+                                borderColor: '#257CFF',
+                                pointRadius: true,
+                                hoverRadius: 8,
+                                borderWidth: 3,
+                                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
+                            },
+                            {
+                                label: 'Total Dissolved Solid',
+                                fill: false,
+                                tension: 0,
+                                backgroundColor: '#34ebbd',
+                                borderColor: '#34ebbd',
+                                pointRadius: true,
+                                hoverRadius: 8,
+                                borderWidth: 3,
+                                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
+                            },
+                            {
+                                label: 'Turbidity',
+                                fill: false,
+                                tension: 0,
+                                backgroundColor: '#6e4d1d',
+                                borderColor: '#6e4d1d',
+                                pointRadius: true,
+                                hoverRadius: 8,
+                                borderWidth: 3,
+                                data: [nilaiTur[0], nilaiTur[1], nilaiTur[2], nilaiTur[3], nilaiTur[4]]
+                            },
+                            {
+                                label: 'Dissolved Oxygen',
+                                fill: false,
+                                tension: 0,
+                                backgroundColor: '#5cceff',
+                                borderColor: '#5cceff',
+                                pointRadius: true,
+                                hoverRadius: 8,
+                                borderWidth: 3,
+                                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
+                            },
+                        ]
                     }
 
                     var lineChartOptions = {
@@ -517,9 +535,6 @@
                         data: lineChartDataPh,
                         options: lineChartOptions
                     })
-
-
-                    
                 </script>
             @endforeach
 
