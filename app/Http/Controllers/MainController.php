@@ -14,6 +14,7 @@ class MainController extends Controller
         $pools = Pool::all();
         $pools_count = $pools->count();
 
+
         $pools_data = PoolData::all();
         $pools_data_count = $pools_data->count();
 
@@ -22,6 +23,7 @@ class MainController extends Controller
 
 
         return view('main', [
+            'pools'=> $pools,
             'pools_count' => $pools_count,
             'pools_data_count' => $pools_data_count,
             'users_count' => $users_count,
