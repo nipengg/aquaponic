@@ -19,6 +19,9 @@
     </section>
     <!-- /.content-header -->
 
+
+
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -75,10 +78,30 @@
             <!-- /.row -->
             <script>
                 var poolsDataAtribut = {!! json_encode($pools_data->toArray()) !!};
-                console.log(poolsDataAtribut)
+                var DataKolam = {!! json_encode($pools->toArray()) !!};
+                // console.log(DataKolam)
 
-                var x = 0;
+                var count = 0;
+                var x = [];
+                var xitung = [];
+
+                // ini buat id di pool aja
+                for (var i = 0; i < DataKolam.length; i++) {
+                    x[i + 1] = DataKolam[i].id;
+                    // console.log(x[i+1])
+                }
+
+                // ini buat id di poolsData
+                for (var i = 0; i < poolsDataAtribut.length; i++) {
+                    xitung[i + 1] = poolsDataAtribut[i].id;
+                    // console.log(xitung[i+1])
+                }
             </script>
+
+            @foreach ($pools_data as $time)
+                <input id="getIdPool{{ $time->id }}" type="hidden" value="{{ $time->pool_id }}">
+                <input id="getTime{{ $time->id }}" type="hidden" value="{{ $time->created_at->format('H:i:s') }}">
+            @endforeach
 
             @foreach ($pools as $pool)
                 <div class="row">
@@ -103,7 +126,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="text-center">
-                                            <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                                            <strong>{{ $today->toDayDateTimeString() }}</strong>
                                         </p>
 
                                         <div class="chart" style="height: 250px;">
@@ -258,39 +281,58 @@
                     var nilaiTur = [];
                     var nilaiOxy = [];
 
-                    x++;
+                    count++;
+
+
 
                     //get id from input html
-                    var namaidpool = "varPool" + x;
-                    var idChart = "salesChart" + x;
+                    var namaidpool = "varPool" + x[count];
+                    var idChart = "salesChart" + x[count];
                     var idPool = document.getElementById(namaidpool).value;
 
                     // change the data GetElementById
                     //Ph
-                    var tempPh = "ph" + x;
-                    var StatusPh = "statusPh" + x;
+                    var tempPh = "ph" + x[count];
+                    var StatusPh = "statusPh" + x[count];
                     //temp
-                    var tempTemp = "Temp" + x;
-                    var StatusTemp = "statusTemp" + x;
+                    var tempTemp = "Temp" + x[count];
+                    var StatusTemp = "statusTemp" + x[count];
                     //Humidity
-                    var tempHum = "Hum" + x;
-                    var StatusHum = "statusHum" + x;
+                    var tempHum = "Hum" + x[count];
+                    var StatusHum = "statusHum" + x[count];
                     //TDS
-                    var tempTds = "Tds" + x;
-                    var StatusTds = "statusTds" + x;
+                    var tempTds = "Tds" + x[count];
+                    var StatusTds = "statusTds" + x[count];
                     //Turbidity
-                    var tempTur = "Tur" + x;
-                    var StatusTur = "statusTur" + x;
+                    var tempTur = "Tur" + x[count];
+                    var StatusTur = "statusTur" + x[count];
                     //Oxygen
-                    var tempOxy = "Oxy" + x;
-                    var StatusOxy = "statusOxy" + x;
+                    var tempOxy = "Oxy" + x[count];
+                    var StatusOxy = "statusOxy" + x[count];
 
 
+
+                    var yitung = 0;
+                    var itung = 0;
                     var y = 0;
-                    console.log("looping UTAMA ke" + x)
+                    var clock = [];
+                    console.log("looping UTAMA ke" + x[count])
                     for (var i = 0; i < poolsDataAtribut.length; i++) {
+                        //getElementID pool and time
+                        itung++;
+                        var elementidPool = "getIdPool" + xitung[itung];
+                        var elementidTime = "getTime" + xitung[itung];
+
+                        var IdPoolGet = document.getElementById(elementidPool).value;
+                        var TimeGet = document.getElementById(elementidTime).value;
+
+                        if (IdPoolGet == idPool) {
+                            yitung++;
+                            clock[yitung] = TimeGet;
+                            console.log(clock[yitung])
+                        }
+
                         if (poolsDataAtribut[i].pool_id == idPool) {
-                            // console.log(y)
 
                             //save in array to pass data in grafik
                             //Ph value
@@ -435,11 +477,15 @@
                     //- CHART -
                     //--------------
 
+
+
+
+
                     // Get context with jQuery - using jQuery's .get() method.
                     var lineChartCanvasPh = $('#' + idChart).get(0).getContext('2d')
 
                     var lineChartDataPh = {
-                        labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+                        labels: [clock[1], clock[2], clock[3], clock[4], clock[5]],
                         datasets: [{
                                 label: 'pH',
                                 fill: false,

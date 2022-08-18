@@ -6,6 +6,7 @@ use App\Models\Pool;
 use App\Models\PoolData;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class MainController extends Controller
 {
@@ -21,13 +22,15 @@ class MainController extends Controller
         $users = User::all();
         $users_count = $users->count();
 
+        $today = Carbon::now();
 
         return view('main', [
             'pools'=> $pools,
             'pools_count' => $pools_count,
             'pools_data_count' => $pools_data_count,
             'users_count' => $users_count,
-            'pools_data' => $pools_data
+            'pools_data' => $pools_data,
+            'today' => $today
         ]);
     }
 }
