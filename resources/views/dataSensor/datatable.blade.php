@@ -42,8 +42,8 @@
                                 <div id="date_filter" class="row">
                                     <input value="{{ $from }}" type="date" id="min" name="min"
                                         class="form-control col-sm" /> &nbsp; &nbsp;
-                                    To &nbsp; &nbsp; <input value="{{ $to }}" type="date" id="max" name="max"
-                                        class="form-control col-sm" /> &nbsp; &nbsp;
+                                    To &nbsp; &nbsp; <input value="{{ $to }}" type="date" id="max"
+                                        name="max" class="form-control col-sm" /> &nbsp; &nbsp;
                                     <button onclick="handleDateChange()" type="button"
                                         class="btn btn-success col-sm">Filter</button> &nbsp; &nbsp;
                                     <button type="button" onclick="handleSelectChange()" class="btn btn-danger">
@@ -80,13 +80,61 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Timestamp</th>
-                                        <th>Suhu</th>
-                                        <th>PH</th>
-                                        <th>Kekeruhan</th>
-                                        <th>Oksigen</th>
-                                        <th>Zat Terlarut</th>
-                                        <th>Oksidasi</th>
+                                        <th>Average</th>
+                                        <th>
+                                            <?php
+                                            $sum = 0;
+                                            foreach ($data as $item) {
+                                                $sum = $sum + $item->temper_val;
+                                            }
+                                            ?>
+                                            {{ number_format($sum / $count, 1) }}
+                                        </th>
+                                        <th>
+                                            <?php
+                                            $sum = 0;
+                                            foreach ($data as $item) {
+                                                $sum = $sum + $item->ph_val;
+                                            }
+                                            ?>
+                                            {{ number_format($sum / $count, 1) }}
+                                        </th>
+                                        <th>
+                                            <?php
+                                            $sum = 0;
+                                            foreach ($data as $item) {
+                                                $sum = $sum + $item->humidity_val;
+                                            }
+                                            ?>
+                                            {{ number_format($sum / $count, 1) }}
+                                        </th>
+                                        <th>
+                                            <?php
+                                            $sum = 0;
+                                            foreach ($data as $item) {
+                                                $sum = $sum + $item->oxygen_val;
+                                            }
+                                            ?>
+                                            {{ number_format($sum / $count, 1) }}
+                                        </th>
+                                        <th>
+                                            <?php
+                                            $sum = 0;
+                                            foreach ($data as $item) {
+                                                $sum = $sum + $item->tds_val;
+                                            }
+                                            ?>
+                                            {{ number_format($sum / $count, 1) }}
+                                        </th>
+                                        <th>
+                                            <?php
+                                            $sum = 0;
+                                            foreach ($data as $item) {
+                                                $sum = $sum + $item->turbidities_val;
+                                            }
+                                            ?>
+                                            {{ number_format($sum / $count, 1) }}
+                                        </th>
                                     </tr>
                                 </tfoot>
                             </table>
