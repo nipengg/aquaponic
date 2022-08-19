@@ -27,12 +27,12 @@ class GrafikController extends Controller
 
 
         $kolam = Pool::all();
-        $ph = PoolData::select('ph_val', 'created_at')->where("pool_id", $id)->get();
-        $oxygen = PoolData::select('oxygen_val', 'created_at')->where("pool_id", $id)->get();
-        $humidity = PoolData::select('humidity_val', 'created_at')->where("pool_id", $id)->get();
-        $TDS = PoolData::select('tds_val', 'created_at')->where("pool_id", $id)->get();
-        $temperature = PoolData::select('temper_val', 'created_at')->where("pool_id", $id)->get();
-        $turbidity = PoolData::select('turbidities_val', 'created_at')->where("pool_id", $id)->get();
+        $ph = PoolData::select('ph_val', 'created_at')->where("pool_id", $id)->latest()->get();
+        $oxygen = PoolData::select('oxygen_val', 'created_at')->where("pool_id", $id)->latest()->get();
+        $humidity = PoolData::select('humidity_val', 'created_at')->where("pool_id", $id)->latest()->latest()->get();
+        $TDS = PoolData::select('tds_val', 'created_at')->where("pool_id", $id)->latest()->get();
+        $temperature = PoolData::select('temper_val', 'created_at')->where("pool_id", $id)->latest()->get();
+        $turbidity = PoolData::select('turbidities_val', 'created_at')->where("pool_id", $id)->latest()->get();
 
 
         return view('dataSensor.datagrafik', [
@@ -67,6 +67,8 @@ class GrafikController extends Controller
             $data = PoolData::where("pool_id", $id)->whereBetween("created_at", [$from, $to])->get();
         }
 
+        $count = $data->count();
+
         $kolam = Pool::all();
 
         return view('dataSensor.datatable', [
@@ -75,6 +77,7 @@ class GrafikController extends Controller
             'id' => $id,
             'from' => $from,
             'to' => $to,
+            'count' => $count,
         ]);
     }
 }

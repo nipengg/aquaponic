@@ -219,6 +219,14 @@
             window.location.href = "{{ url('/datasensor-grafik/?id=') }}" + idUrl;
         }
 
+        // Waktu
+        var waktu = [];
+        var count = {!! json_encode($ph->toArray()) !!};
+        for (var i = 0; i < count.length; i++) {
+            var date = new Date(count[i].created_at);
+            waktu[i] = (date.getHours() + 1) + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" + date.getSeconds();
+        }
+
         // PH Data
         var sitesPH = {!! json_encode($ph->toArray()) !!};
         var nilaiPh = [];
@@ -265,7 +273,7 @@
         var lineChartCanvasPh = $('#lineChart').get(0).getContext('2d')
 
         var lineChartDataPh = {
-            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
             datasets: [{
                 label: 'pH',
                 fill: false,
@@ -275,7 +283,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
+                data: [nilaiPh[4], nilaiPh[3], nilaiPh[2], nilaiPh[1], nilaiPh[0]]
             }, ]
         }
 
@@ -315,7 +323,7 @@
         var lineChartCanvasTemp = $('#temperChart').get(0).getContext('2d')
 
         var lineChartDataTemp = {
-            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
             datasets: [{
                 label: 'Temperature',
                 fill: false,
@@ -325,7 +333,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
+                data: [nilaiTemp[4], nilaiTemp[3], nilaiTemp[2], nilaiTemp[1], nilaiTemp[0]]
             }, ]
         }
 
@@ -343,7 +351,7 @@
         var lineChartCanvasHum = $('#humChart').get(0).getContext('2d')
 
         var lineChartDataHum = {
-            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
             datasets: [{
                 label: 'Humidity',
                 fill: false,
@@ -353,7 +361,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
+                data: [nilaiHum[4], nilaiHum[3], nilaiHum[2], nilaiHum[1], nilaiHum[0]]
             }, ]
         }
 
@@ -373,7 +381,7 @@
         var lineChartCanvasOxy = $('#OxyChart').get(0).getContext('2d')
 
         var lineChartDataOxy = {
-            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
             datasets: [{
                 label: 'Oxygen',
                 fill: false,
@@ -383,7 +391,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
+                data: [nilaiOxy[4], nilaiOxy[3], nilaiOxy[2], nilaiOxy[1], nilaiOxy[0]]
             }, ]
         }
 
@@ -402,7 +410,7 @@
         var lineChartCanvasTds = $('#TdsChart').get(0).getContext('2d')
 
         var lineChartDataTds = {
-            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
             datasets: [{
                 label: 'TDS',
                 fill: false,
@@ -412,7 +420,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
+                data: [nilaiTds[4], nilaiTds[3], nilaiTds[2], nilaiTds[1], nilaiTds[0]]
             }, ]
         }
 
@@ -430,7 +438,7 @@
         var lineChartCanvasTurbi = $('#TurbiChart').get(0).getContext('2d')
 
         var lineChartDataTurbi = {
-            labels: ['waktu1', 'waktu2', 'waktu3', 'waktu4', 'waktu5', 'waktu6', 'waktu6'],
+            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
             datasets: [{
                 label: 'Turbi',
                 fill: false,
@@ -440,7 +448,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTurbi[0], nilaiTurbi[1], nilaiTurbi[2], nilaiTurbi[3], nilaiTurbi[4]]
+                data: [nilaiTurbi[4], nilaiTurbi[3], nilaiTurbi[2], nilaiTurbi[1], nilaiTurbi[0]]
             }, ]
         }
 
