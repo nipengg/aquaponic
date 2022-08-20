@@ -79,7 +79,7 @@
             <script>
                 var poolsDataAtribut = {!! json_encode($pools_data->toArray()) !!};
                 var DataKolam = {!! json_encode($pools->toArray()) !!};
-                // console.log(DataKolam)
+                // console.log(poolsDataAtribut)
 
                 var count = 0;
                 var x = [];
@@ -126,7 +126,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="text-center">
-                                            <strong>{{ $today }}</strong>
+                                            <strong>{{ $today->toDayDateTimeString() }}</strong>
                                         </p>
 
                                         <div class="chart" style="height: 250px;">
@@ -315,8 +315,17 @@
                     var yitung = 0;
                     var itung = 0;
                     var y = 0;
+                    var banyakData = 0;
                     var clock = [];
                     console.log("looping UTAMA ke" + x[count])
+
+                    //bikin count untuk mengetahui banyak data pada id pool yang sama
+                    for (var i = 0; i < poolsDataAtribut.length; i++) {
+                        if (poolsDataAtribut[i].pool_id == idPool) banyakData++;
+                    }
+                    if (banyakData > 5) banyakData = 5;
+
+
                     for (var i = 0; i < poolsDataAtribut.length; i++) {
                         //getElementID pool and time
                         itung++;
@@ -326,92 +335,128 @@
                         var IdPoolGet = document.getElementById(elementidPool).value;
                         var TimeGet = document.getElementById(elementidTime).value;
 
-                        if (IdPoolGet == idPool) {
-                            yitung++;
-                            clock[yitung] = TimeGet;
-                            console.log(clock[yitung])
-                        }
+                        if (IdPoolGet == idPool && banyakData > 0 && banyakData <= 5) {
 
-                        if (poolsDataAtribut[i].pool_id == idPool) {
+                            yitung++;
+                            clock[banyakData] = TimeGet;
+                            // console.log(clock[yitung])
+
+
 
                             //save in array to pass data in grafik
                             //Ph value
-                            nilaiPh[y] = poolsDataAtribut[i].ph_val;
+                            nilaiPh[banyakData] = poolsDataAtribut[i].ph_val;
 
                             //Temp value
-                            nilaiTemp[y] = poolsDataAtribut[i].temper_val;
+                            nilaiTemp[banyakData] = poolsDataAtribut[i].temper_val;
 
                             //Humidity value
-                            nilaiHum[y] = poolsDataAtribut[i].humidity_val;
+                            nilaiHum[banyakData] = poolsDataAtribut[i].humidity_val;
 
                             //TDS value
-                            nilaiTds[y] = poolsDataAtribut[i].tds_val;
+                            nilaiTds[banyakData] = poolsDataAtribut[i].tds_val;
 
                             //Turbidity value
-                            nilaiTur[y] = poolsDataAtribut[i].turbidities_val;
+                            nilaiTur[banyakData] = poolsDataAtribut[i].turbidities_val;
 
                             //Oxygen value
-                            nilaiOxy[y] = poolsDataAtribut[i].oxygen_val;
+                            nilaiOxy[banyakData] = poolsDataAtribut[i].oxygen_val;
 
 
-
+                            banyakData--;
                             y++;
 
                             // get the latest data from poolsDataAtribut
 
                             //PH variable
-                            var lastPH = poolsDataAtribut[i].ph_val;
-                            var progressPh = (poolsDataAtribut[i].ph_val / 14) * 100;
+                            var lastPH = poolsDataAtribut[0].ph_val;
+                            var progressPh = (lastPH / 14) * 100;
 
-                            if (progressPh < 48, 5 || progressPh > 50)
-                                var phStatus = "Not Ideal Score";
-                            else
-                                var phStatus = "Good PH Score";
+                            if (progressPh < 48, 5 || progressPh > 50) {
+                                var phStatus = " Not Ideal Score";
+                                var iconStatusPh = "fas fa-caret-down";
+                                var textColorStatusPh = "text-danger";
+
+                            } else {
+                                var phStatus = " Good PH Score";
+                                var iconStatusPh = "fas fa-caret-up";
+                                var textColorStatusPh = "text-success";
+                            }
 
                             //Temp variable
-                            var lastTemp = poolsDataAtribut[i].temper_val;
-                            var progressTemp = (poolsDataAtribut[i].temper_val / 100) * 100;
+                            var lastTemp = poolsDataAtribut[0].temper_val;
+                            var progressTemp = (lastTemp / 100) * 100;
 
-                            if (progressTemp < 20 || progressTemp > 30)
-                                var TempStatus = "Not Ideal Score";
-                            else
-                                var TempStatus = "Good Temp Score";
+                            if (progressTemp < 20 || progressTemp > 30) {
+                                var TempStatus = " Not Ideal Score";
+                                var iconStatusTemp = "fas fa-caret-down";
+                                var textColorStatusTemp = "text-danger";
+                            } else{
+                                var TempStatus = " Good Temp Score";
+                                var iconStatusTemp = "fas fa-caret-up";
+                                var textColorStatusTemp = "text-success";
+                            }
 
                             //Hum variable
-                            var lastHum = poolsDataAtribut[i].humidity_val;
-                            var progressHum = (poolsDataAtribut[i].humidity_val / 100) * 100;
+                            var lastHum = poolsDataAtribut[0].humidity_val;
+                            var progressHum = (lastHum / 100) * 100;
 
                             if (progressHum < 60 || progressHum > 80)
-                                var HumStatus = "Not Ideal Score";
-                            else
-                                var HumStatus = "Good Humidty Score";
+                            {
+                                var HumStatus = " Not Ideal Score";
+                                var iconStatusHum = "fas fa-caret-down";
+                                var textColorStatusHum = "text-danger";
+                            }
+                            else{
+                                var HumStatus = " Good Humidty Score";
+                                var iconStatusHum = "fas fa-caret-up";
+                                var textColorStatusHum = "text-success";
+                            }
 
                             //Tds variable
-                            var lastTds = poolsDataAtribut[i].tds_val;
-                            var progressTds = (poolsDataAtribut[i].tds_val / 1500) * 100;
+                            var lastTds = poolsDataAtribut[0].tds_val;
+                            var progressTds = (lastTds / 1500) * 100;
 
-                            if (progressTds < 1050 || progressTds > 1200)
-                                var TdsStatus = "Not Ideal Score";
-                            else
-                                var TdsStatus = "Good Tds Score";
+                            if (progressTds < 1050 || progressTds > 1200){
+                                var TdsStatus = " Not Ideal Score";
+                                var iconStatusTds = "fas fa-caret-down";
+                                var textColorStatusTds = "text-danger";
+                            }
+                            else{
+                                var TdsStatus = " Good Tds Score";
+                                var iconStatusTds = "fas fa-caret-up";
+                                var textColorStatusTds = "text-success";
+                            }
 
                             //Tur variable
-                            var lastTur = poolsDataAtribut[i].turbidities_val;
-                            var progressTur = (poolsDataAtribut[i].turbidities_val / 50) * 100;
+                            var lastTur = poolsDataAtribut[0].turbidities_val;
+                            var progressTur = (lastTur / 50) * 100;
 
-                            if (progressTur < 1 || progressTur > 5)
-                                var TurStatus = "Not Ideal Score";
-                            else
-                                var TurStatus = "Good Tur Score";
+                            if (progressTur < 1 || progressTur > 5){
+                                var TurStatus = " Not Ideal Score";
+                                var iconStatusTur = "fas fa-caret-down";
+                                var textColorStatusTur = "text-danger";
+                            }
+                            else{
+                                var TurStatus = " Good Tur Score";
+                                var iconStatusTur = "fas fa-caret-up";
+                                var textColorStatusTur = "text-success";
+                            }
 
                             //Oxy variable
-                            var lastOxy = poolsDataAtribut[i].oxygen_val;
-                            var progressOxy = (poolsDataAtribut[i].oxygen_val / 50) * 100;
+                            var lastOxy = poolsDataAtribut[0].oxygen_val;
+                            var progressOxy = (lastOxy / 50) * 100;
 
-                            if (progressOxy < 4 || progressOxy > 12)
-                                var OxyStatus = "Not Ideal Score";
-                            else
-                                var OxyStatus = "Good Oxy Score";
+                            if (progressOxy < 4 || progressOxy > 12){
+                                var OxyStatus = " Not Ideal Score";
+                                var iconStatusOxy = "fas fa-caret-down";
+                                var textColorStatusOxy = "text-danger";
+                            }
+                            else{
+                                var OxyStatus = " Good Oxy Score";
+                                var iconStatusOxy = "fas fa-caret-up";
+                                var textColorStatusOxy = "text-success";
+                            }
 
 
 
@@ -446,33 +491,39 @@
 
                             // Status Data
                             document.getElementById(StatusPh).innerHTML =
-                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
-                                phStatus + '</span><h5 class="description-header">' + lastPH +
+                                '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusPh +
+                                '"><i class="' +
+                                iconStatusPh + '"></i>' + phStatus + '</span><h5 class="description-header">' + lastPH +
                                 '</h5><span class="description-text">PH</span></div>';
                             document.getElementById(StatusTemp).innerHTML =
-                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusTemp + '"><i class="' +
+                                iconStatusTemp + '"></i>' +
                                 TempStatus + '</span><h5 class="description-header">' + lastTemp +
                                 '</h5><span class="description-text">Temp</span></div>';
                             document.getElementById(StatusHum).innerHTML =
-                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusHum + '"><i class="' +
+                                iconStatusHum + '"></i>' +
                                 HumStatus + '</span><h5 class="description-header">' + lastHum +
                                 '</h5><span class="description-text">Hum</span></div>';
                             document.getElementById(StatusTds).innerHTML =
-                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusTds + '"><i class="' +
+                                iconStatusTds + '"></i>' +
                                 TdsStatus + '</span><h5 class="description-header">' + lastTds +
                                 '</h5><span class="description-text">Tds</span></div>';
                             document.getElementById(StatusTur).innerHTML =
-                                '<div class="description-block border-right"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusTur + '"><i class="' +
+                                iconStatusTur + '"></i>' +
                                 TurStatus + '</span><h5 class="description-header">' + lastTur +
                                 '</h5><span class="description-text">Tur</span></div>';
                             document.getElementById(StatusOxy).innerHTML =
-                                '<div class="description-block"><span class="description-percentage text-success"><i class="fas fa-caret-up"></i>' +
+                                '<div class="description-block"><span class="description-percentage ' + textColorStatusOxy + '"><i class="' +
+                                iconStatusOxy + '"></i>' +
                                 OxyStatus + '</span><h5 class="description-header">' + lastOxy +
                                 '</h5><span class="description-text">Oxy</span></div>';
 
                         }
                     }
-
+                    console.log(banyakData)
                     //--------------
                     //- CHART -
                     //--------------
@@ -495,7 +546,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
+                                data: [nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4], nilaiPh[5]]
                             },
                             {
                                 label: 'Temperature',
@@ -506,7 +557,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
+                                data: [nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4], nilaiTemp[5]]
                             },
                             {
                                 label: 'Humidity',
@@ -517,7 +568,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
+                                data: [nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4], nilaiHum[5]]
                             },
                             {
                                 label: 'Total Dissolved Solid',
@@ -528,7 +579,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
+                                data: [nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4], nilaiTds[5]]
                             },
                             {
                                 label: 'Turbidity',
@@ -539,7 +590,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiTur[0], nilaiTur[1], nilaiTur[2], nilaiTur[3], nilaiTur[4]]
+                                data: [nilaiTur[1], nilaiTur[2], nilaiTur[3], nilaiTur[4], nilaiTur[5]]
                             },
                             {
                                 label: 'Dissolved Oxygen',
@@ -550,7 +601,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
+                                data: [nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4], nilaiOxy[5]]
                             },
                         ]
                     }
