@@ -225,7 +225,7 @@
         var xhitung = 0;
         for (var i = getWaktu.length-1; i >= 0; i--) {
             var date = new Date(getWaktu[i].created_at);
-            waktu[xhitung] = (date.getHours() + 1) + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" + date.getSeconds();
+            waktu[xhitung] = (date.getHours() < 10 ? '0' : '') + (date.getHours()) + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" + date.getSeconds();
             xhitung++;
         }
 

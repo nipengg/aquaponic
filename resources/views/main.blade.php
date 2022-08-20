@@ -126,7 +126,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p class="text-center">
-                                            <strong>{{ $today->toDayDateTimeString() }}</strong>
+                                            <strong>{{ $today }}</strong>
                                         </p>
 
                                         <div class="chart" style="height: 250px;">
