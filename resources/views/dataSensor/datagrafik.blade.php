@@ -219,50 +219,64 @@
             window.location.href = "{{ url('/datasensor-grafik/?id=') }}" + idUrl;
         }
 
-        // Waktu
+        //Waktu
+        var getWaktu = {!! json_encode($ph->toArray()) !!};
         var waktu = [];
-        var count = {!! json_encode($ph->toArray()) !!};
-        for (var i = 0; i < count.length; i++) {
-            var date = new Date(count[i].created_at);
-            waktu[i] = (date.getHours() + 1) + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" + date.getSeconds();
+        var xhitung = 0;
+        for (var i = getWaktu.length-1; i >= 0; i--) {
+            var date = new Date(getWaktu[i].created_at);
+            waktu[xhitung] = (date.getHours() + 1) + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" + date.getSeconds();
+            xhitung++;
         }
 
         // PH Data
         var sitesPH = {!! json_encode($ph->toArray()) !!};
         var nilaiPh = [];
-        for (var i = 0; i < sitesPH.length; i++) {
-            nilaiPh[i] = sitesPH[i].ph_val;
+        xhitung = 0;
+        for (var i = sitesPH.length-1; i >= 0; i--) {
+            nilaiPh[xhitung] = sitesPH[i].ph_val;
+            xhitung++;
         }
 
         // Temp Data
         var sitesTemp = {!! json_encode($temperature->toArray()) !!};
         var nilaiTemp = [];
-        for (var i = 0; i < sitesTemp.length; i++) {
-            nilaiTemp[i] = sitesTemp[i].temper_val;
+        xhitung = 0;
+        for (var i = sitesTemp.length-1; i >= 0; i--) {
+            nilaiTemp[xhitung] = sitesTemp[i].temper_val;
+            xhitung++;
         }
         // Hum Data
         var sitesHum = {!! json_encode($humidity->toArray()) !!};
         var nilaiHum = [];
-        for (var i = 0; i < sitesHum.length; i++) {
-            nilaiHum[i] = sitesHum[i].humidity_val;
+        xhitung = 0;
+        for (var i = sitesHum.length-1; i >= 0; i--) {
+            nilaiHum[xhitung] = sitesHum[i].humidity_val;
+            xhitung++;
         }
         // Oxygen Data
         var sitesOxy = {!! json_encode($oxygen->toArray()) !!};
         var nilaiOxy = [];
-        for (var i = 0; i < sitesOxy.length; i++) {
-            nilaiOxy[i] = sitesOxy[i].oxygen_val;
+        xhitung = 0;
+        for (var i = sitesOxy.length-1; i >= 0; i--) {
+            nilaiOxy[xhitung] = sitesOxy[i].oxygen_val;
+            xhitung++;
         }
         // TDS Data
         var sitesTds = {!! json_encode($TDS->toArray()) !!};
         var nilaiTds = [];
-        for (var i = 0; i < sitesTds.length; i++) {
-            nilaiTds[i] = sitesTds[i].tds_val;
+        xhitung = 0;
+        for (var i = sitesTds.length-1; i >= 0; i--) {
+            nilaiTds[xhitung] = sitesTds[i].tds_val;
+            xhitung++;
         }
         // Turbidities Data
         var sitesTurbi = {!! json_encode($turbidity->toArray()) !!};
         var nilaiTurbi = [];
-        for (var i = 0; i < sitesTurbi.length; i++) {
-            nilaiTurbi[i] = sitesTurbi[i].turbidities_val;
+        xhitung = 0;
+        for (var i = sitesTurbi.length-1; i >= 0; i--) {
+            nilaiTurbi[xhitung] = sitesTurbi[i].turbidities_val;
+            xhitung++;
         }
 
         //--------------
@@ -273,7 +287,7 @@
         var lineChartCanvasPh = $('#lineChart').get(0).getContext('2d')
 
         var lineChartDataPh = {
-            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
             datasets: [{
                 label: 'pH',
                 fill: false,
@@ -283,7 +297,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiPh[4], nilaiPh[3], nilaiPh[2], nilaiPh[1], nilaiPh[0]]
+                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
             }, ]
         }
 
@@ -323,7 +337,7 @@
         var lineChartCanvasTemp = $('#temperChart').get(0).getContext('2d')
 
         var lineChartDataTemp = {
-            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
             datasets: [{
                 label: 'Temperature',
                 fill: false,
@@ -333,7 +347,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTemp[4], nilaiTemp[3], nilaiTemp[2], nilaiTemp[1], nilaiTemp[0]]
+                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
             }, ]
         }
 
@@ -351,7 +365,7 @@
         var lineChartCanvasHum = $('#humChart').get(0).getContext('2d')
 
         var lineChartDataHum = {
-            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
             datasets: [{
                 label: 'Humidity',
                 fill: false,
@@ -361,7 +375,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiHum[4], nilaiHum[3], nilaiHum[2], nilaiHum[1], nilaiHum[0]]
+                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
             }, ]
         }
 
@@ -381,7 +395,7 @@
         var lineChartCanvasOxy = $('#OxyChart').get(0).getContext('2d')
 
         var lineChartDataOxy = {
-            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
             datasets: [{
                 label: 'Oxygen',
                 fill: false,
@@ -391,7 +405,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiOxy[4], nilaiOxy[3], nilaiOxy[2], nilaiOxy[1], nilaiOxy[0]]
+                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
             }, ]
         }
 
@@ -410,7 +424,7 @@
         var lineChartCanvasTds = $('#TdsChart').get(0).getContext('2d')
 
         var lineChartDataTds = {
-            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
             datasets: [{
                 label: 'TDS',
                 fill: false,
@@ -420,7 +434,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTds[4], nilaiTds[3], nilaiTds[2], nilaiTds[1], nilaiTds[0]]
+                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
             }, ]
         }
 
@@ -438,7 +452,7 @@
         var lineChartCanvasTurbi = $('#TurbiChart').get(0).getContext('2d')
 
         var lineChartDataTurbi = {
-            labels: [waktu[4], waktu[3], waktu[2], waktu[1], waktu[0]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
             datasets: [{
                 label: 'Turbi',
                 fill: false,
@@ -448,7 +462,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTurbi[4], nilaiTurbi[3], nilaiTurbi[2], nilaiTurbi[1], nilaiTurbi[0]]
+                data: [nilaiTurbi[0], nilaiTurbi[1], nilaiTurbi[2], nilaiTurbi[3], nilaiTurbi[4]]
             }, ]
         }
 
