@@ -477,17 +477,16 @@
                             //Tds
                             document.getElementById(tempTds).innerHTML = 'Total Dissolved Solid (TDS)<span class="float-right"><b>' +
                                 lastTds +
-                                '</b>/1500</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/1500</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#3d9970; width: ' +
                                 progressTds + '%"></div></div>';
                             //Turbidity
                             document.getElementById(tempTur).innerHTML = 'Turbidity<span class="float-right"><b>' + lastTur +
-                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#605ca8; width: ' +
                                 progressTur + '%"></div></div>';
                             //Oxygen
                             document.getElementById(tempOxy).innerHTML = 'Oxygen<span class="float-right"><b>' + lastOxy +
-                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#01ff70; width: ' +
                                 progressOxy + '%"></div></div>';
-
 
                             // Status Data
                             document.getElementById(StatusPh).innerHTML =
@@ -527,10 +526,6 @@
                     //--------------
                     //- CHART -
                     //--------------
-
-
-
-
 
                     // Get context with jQuery - using jQuery's .get() method.
                     var lineChartCanvasPh = $('#' + idChart).get(0).getContext('2d')
