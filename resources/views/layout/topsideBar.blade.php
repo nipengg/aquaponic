@@ -96,7 +96,7 @@
                         data-accordion="false">
 
                         <li id="beranda" class="nav-item">
-                            <a href="/" class="nav-link">
+                            <a href="/home" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Beranda</p>
                             </a>
@@ -139,12 +139,11 @@
             <!-- /.sidebar -->
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+
+        <div id="dashboard" class="content-wrapper">
             @yield('content')
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
+
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -203,6 +202,7 @@
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
+
         
     </script>
 </body>

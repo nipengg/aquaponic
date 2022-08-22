@@ -647,7 +647,4 @@
 
 
 
-        </body>
-
-        </html>
     @endsection
