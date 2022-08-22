@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="name">Nama Kolam</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $pool->name }}" placeholder="Nama Kolam" required>
+                        <input autocomplete="off" type="text" class="form-control" id="name" name="name" value="{{ $pool->name }}" placeholder="Nama Kolam" required>
                     </div>
                     <div class="form-group">
                         <label for="area">Area</label>

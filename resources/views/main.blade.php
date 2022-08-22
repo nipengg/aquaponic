@@ -358,7 +358,7 @@
                             // get the latest data from poolsDataAtribut
 
                             //PH variable
-                            var lastPH = poolsDataAtribut[0].ph_val;
+                            var lastPH = nilaiPh[nilaiPh.length-1];
                             var progressPh = (lastPH / 14) * 100;
 
                             if (progressPh < 48.5 || progressPh > 50) {
@@ -370,10 +370,10 @@
                                 var phStatus = " Good PH Score";
                                 var iconStatusPh = "fas fa-caret-up";
                                 var textColorStatusPh = "text-success";
-                            }
+                            }   
 
                             //Temp variable
-                            var lastTemp = poolsDataAtribut[0].temper_val;
+                            var lastTemp = nilaiTemp[nilaiTemp.length-1];
                             var progressTemp = (lastTemp / 100) * 100;
 
                             if (progressTemp < 20 || progressTemp > 30) {
@@ -387,7 +387,7 @@
                             }
 
                             //Hum variable
-                            var lastHum = poolsDataAtribut[0].humidity_val;
+                            var lastHum = nilaiHum[nilaiHum.length-1];
                             var progressHum = (lastHum / 100) * 100;
 
                             if (progressHum < 60 || progressHum > 80)
@@ -403,7 +403,7 @@
                             }
 
                             //Tds variable
-                            var lastTds = poolsDataAtribut[0].tds_val;
+                            var lastTds = nilaiTds[nilaiTds.length-1];
                             var progressTds = (lastTds / 1500) * 100;
 
                             if (progressTds < 1050 || progressTds > 1200){
@@ -418,7 +418,7 @@
                             }
 
                             //Tur variable
-                            var lastTur = poolsDataAtribut[0].turbidities_val;
+                            var lastTur = nilaiTur[nilaiTur.length-1];
                             var progressTur = (lastTur / 50) * 100;
 
                             if (progressTur < 1 || progressTur > 5){
@@ -433,7 +433,7 @@
                             }
 
                             //Oxy variable
-                            var lastOxy = poolsDataAtribut[0].oxygen_val;
+                            var lastOxy = nilaiOxy[nilaiOxy.length-1];
                             var progressOxy = (lastOxy / 50) * 100;
 
                             if (progressOxy < 4 || progressOxy > 12){
@@ -509,7 +509,7 @@
 
                         }
                     }
-                    console.log(banyakData)
+                    // console.log(banyakData)
                     //--------------
                     //- CHART -
                     //--------------
