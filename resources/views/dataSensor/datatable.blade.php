@@ -46,7 +46,7 @@
                                         name="max" class="form-control col-sm" /> &nbsp; &nbsp;
                                     <button onclick="handleDateChange()" type="button"
                                         class="btn btn-success col-sm">Filter</button> &nbsp; &nbsp;
-                                    <button type="button" onclick="handleSelectChange()" class="btn btn-danger">
+                                    <button type="button" onclick="handleSelectChange()" class="btn btn-danger col-sm">
                                         Clear Filter</a>
                                 </div>
                             </div>

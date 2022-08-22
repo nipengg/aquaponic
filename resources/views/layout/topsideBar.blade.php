@@ -149,7 +149,7 @@
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
-        </aside>`
+        </aside>
         <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
@@ -197,7 +197,6 @@
     <script>
         $(function() {
             $("#example1").DataTable({
-                "order": 'desc',
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,

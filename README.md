@@ -17,3 +17,4 @@
 - [Hadad Al Akbar](https://github.com/qweersq)
 - [MoloKraiken](https://github.com/MoloKrakein)
 - [Rifaldi Indrajaya](https://github.com/rifaldibpn2)
+- [Joshua Satya Laksana](https://github.com/joshuasl12)
