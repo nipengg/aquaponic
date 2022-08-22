@@ -19,9 +19,6 @@
     </section>
     <!-- /.content-header -->
 
-
-
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -283,8 +280,6 @@
 
                     count++;
 
-
-
                     //get id from input html
                     var namaidpool = "varPool" + x[count];
                     var idChart = "salesChart" + x[count];
@@ -310,8 +305,6 @@
                     var tempOxy = "Oxy" + x[count];
                     var StatusOxy = "statusOxy" + x[count];
 
-
-
                     var yitung = 0;
                     var itung = 0;
                     var y = 0;
@@ -324,7 +317,6 @@
                         if (poolsDataAtribut[i].pool_id == idPool) banyakData++;
                     }
                     if (banyakData > 5) banyakData = 5;
-
 
                     for (var i = 0; i < poolsDataAtribut.length; i++) {
                         //getElementID pool and time
@@ -340,8 +332,6 @@
                             yitung++;
                             clock[banyakData] = TimeGet;
                             // console.log(clock[yitung])
-
-
 
                             //save in array to pass data in grafik
                             //Ph value
@@ -362,7 +352,6 @@
                             //Oxygen value
                             nilaiOxy[banyakData] = poolsDataAtribut[i].oxygen_val;
 
-
                             banyakData--;
                             y++;
 
@@ -372,7 +361,7 @@
                             var lastPH = poolsDataAtribut[0].ph_val;
                             var progressPh = (lastPH / 14) * 100;
 
-                            if (progressPh < 48, 5 || progressPh > 50) {
+                            if (progressPh < 48.5 || progressPh > 50) {
                                 var phStatus = " Not Ideal Score";
                                 var iconStatusPh = "fas fa-caret-down";
                                 var textColorStatusPh = "text-danger";
@@ -457,8 +446,6 @@
                                 var iconStatusOxy = "fas fa-caret-up";
                                 var textColorStatusOxy = "text-success";
                             }
-
-
 
                             // Progress Bar
                             //Ph
@@ -639,9 +626,6 @@
             </footer>
         </div>
         <!-- ./wrapper -->
-
-
-
         </body>
 
         </html>
