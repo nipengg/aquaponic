@@ -19,9 +19,6 @@
     </section>
     <!-- /.content-header -->
 
-
-
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -283,8 +280,6 @@
 
                     count++;
 
-
-
                     //get id from input html
                     var namaidpool = "varPool" + x[count];
                     var idChart = "salesChart" + x[count];
@@ -310,8 +305,6 @@
                     var tempOxy = "Oxy" + x[count];
                     var StatusOxy = "statusOxy" + x[count];
 
-
-
                     var yitung = 0;
                     var itung = 0;
                     var y = 0;
@@ -324,7 +317,6 @@
                         if (poolsDataAtribut[i].pool_id == idPool) banyakData++;
                     }
                     if (banyakData > 5) banyakData = 5;
-
 
                     for (var i = 0; i < poolsDataAtribut.length; i++) {
                         //getElementID pool and time
@@ -340,8 +332,6 @@
                             yitung++;
                             clock[banyakData] = TimeGet;
                             // console.log(clock[yitung])
-
-
 
                             //save in array to pass data in grafik
                             //Ph value
@@ -362,7 +352,6 @@
                             //Oxygen value
                             nilaiOxy[banyakData] = poolsDataAtribut[i].oxygen_val;
 
-
                             banyakData--;
                             y++;
 
@@ -372,7 +361,7 @@
                             var lastPH = poolsDataAtribut[0].ph_val;
                             var progressPh = (lastPH / 14) * 100;
 
-                            if (progressPh < 48, 5 || progressPh > 50) {
+                            if (progressPh < 48.5 || progressPh > 50) {
                                 var phStatus = " Not Ideal Score";
                                 var iconStatusPh = "fas fa-caret-down";
                                 var textColorStatusPh = "text-danger";
@@ -458,8 +447,6 @@
                                 var textColorStatusOxy = "text-success";
                             }
 
-
-
                             // Progress Bar
                             //Ph
                             document.getElementById(tempPh).innerHTML = 'PH <span class="float-right"><b>' + lastPH +
@@ -477,17 +464,16 @@
                             //Tds
                             document.getElementById(tempTds).innerHTML = 'Total Dissolved Solid (TDS)<span class="float-right"><b>' +
                                 lastTds +
-                                '</b>/1500</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/1500</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#3d9970; width: ' +
                                 progressTds + '%"></div></div>';
                             //Turbidity
                             document.getElementById(tempTur).innerHTML = 'Turbidity<span class="float-right"><b>' + lastTur +
-                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#605ca8; width: ' +
                                 progressTur + '%"></div></div>';
                             //Oxygen
                             document.getElementById(tempOxy).innerHTML = 'Oxygen<span class="float-right"><b>' + lastOxy +
-                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#01ff70; width: ' +
                                 progressOxy + '%"></div></div>';
-
 
                             // Status Data
                             document.getElementById(StatusPh).innerHTML =
@@ -527,10 +513,6 @@
                     //--------------
                     //- CHART -
                     //--------------
-
-
-
-
 
                     // Get context with jQuery - using jQuery's .get() method.
                     var lineChartCanvasPh = $('#' + idChart).get(0).getContext('2d')
@@ -644,7 +626,5 @@
             </footer>
         </div>
         <!-- ./wrapper -->
-
-
 
     @endsection

@@ -61,9 +61,9 @@ class GrafikController extends Controller
         }
 
         if ($from == NULL && $to == NULL) {
-            $data = PoolData::where("pool_id", $id)->get();
+            $data = PoolData::where("pool_id", $id)->orderBy('created_at', 'desc')->get();
         } else {
-            $data = PoolData::where("pool_id", $id)->whereBetween("created_at", [$from, $to])->get();
+            $data = PoolData::where("pool_id", $id)->whereBetween("created_at", [$from, $to])->orderBy('created_at', 'desc')->get();
         }
 
         $count = $data->count();

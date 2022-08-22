@@ -6,7 +6,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Grafik</h1>
-                    <div class="form-group" style="margin-bottom: -10px">
+                    <div class="form-group">
                         <label class="mt-3">Pilih Kolam</label>
                         <select id="pilihKolam" onchange="handleSelectChange()" class="form-control select2"
                             style="width: 100%;">
@@ -188,11 +188,9 @@
         <!-- /.card -->
     </div>
 
-
     <script type="text/javascript">
         document.getElementById("TopTitle").innerHTML = "Data Grafik";
     </script>
-
 
     <!-- /.content -->
     </div>
@@ -201,17 +199,9 @@
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
-    </aside>`
+    </aside>
     <!-- /.control-sidebar -->
-
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2022 <a href="#">Aquaponic</a>.</strong>
-        All rights reserved.
-    </footer>
     </div>
-    <!-- ./wrapper -->
-
 
     <script type="text/javascript">
         function handleSelectChange(event) {

@@ -1,4 +1,4 @@
-# Aquaponic
+# Aquaponic <img src="public/AdminLTE/dist/img/aquaponicLogo.png" width="20" title="hover text">
 > Web application for visualize and maintain temperature, ph, humidity, etc from existing censor pool for [Sinam Lab](https://sinamlab.com)
 
 ## Table of Contents
@@ -17,3 +17,4 @@
 - [Hadad Al Akbar](https://github.com/qweersq)
 - [MoloKraiken](https://github.com/MoloKrakein)
 - [Rifaldi Indrajaya](https://github.com/rifaldibpn2)
+- [Joshua Satya Laksana](https://github.com/joshuasl12)
