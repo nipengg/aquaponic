@@ -24,5 +24,14 @@ class PoolDataSeeder extends Seeder
             'tds_val' => 40,
             'turbidities_val' => 45,
         ]);
+        PoolData::create([
+            'pool_id' => 1,
+            'temper_val' => 35,
+            'ph_val' => 15,
+            'humidity_val' => 50,
+            'oxygen_val' => 20,
+            'tds_val' => 60,
+            'turbidities_val' => 80,
+        ]);
     }
 }
