@@ -34,4 +34,9 @@ class MainController extends Controller
             'today' => $today
         ]);
     }
+
+    public function inactive()
+    {
+        return view('auth.inactive');
+    }
 }

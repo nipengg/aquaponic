@@ -3,6 +3,7 @@
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PoolController;
+use App\Http\Middleware\Inactive;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,15 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('inactive')->group(function () {
+    Route::get('/inactive', [MainController::class, 'inactive']);
+});
+
+Route::middleware(['auth', 'active'])->group(function () {
+    // Dashboard
     Route::get('/home', [MainController::class, 'index'])->name('home');
 
+    // Pool URL
     Route::prefix('/kolam')->group(function () {
         Route::get('/', [PoolController::class, 'index'])->name('kolam');
         Route::get('/create', [PoolController::class, 'create']);
@@ -32,6 +39,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/{id}', [PoolController::class, 'destroy'])->name('kolam.destroy');
     });
 
+    // Data Sensor
     Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
     Route::get('/datasensor-table', [GrafikController::class, 'table']);
 });

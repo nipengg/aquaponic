@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *ar
      * @return void
      */
     public function up()
@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone');
-            $table->enum('role', ['user', 'admin'])->default('admin');
+            $table->enum('role', ['inactive', 'user', 'admin'])->default('inactive');
             $table->rememberToken();
             $table->timestamps();
         });
