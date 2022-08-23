@@ -132,6 +132,14 @@
                                 <p>Kolam</p>
                             </a>
                         </li>
+                        @if (Auth::user()->role == 'admin')
+                            <li id="user" class="nav-item">
+                                <a href="/admin/user" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>Manage User</p>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -193,18 +201,6 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js') }}"></script>
     <!-- Page specific script -->
-    <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-                order: [[0, 'desc']],
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        });
-
-    </script>
 </body>
 
 </html>

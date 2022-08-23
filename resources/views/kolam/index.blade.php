@@ -57,7 +57,7 @@
                                             <td><a href="{{ route('kolam.edit', $pool->id) }}" class="btn btn-info">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
-                                                <form action="{{ route('kolam.destroy', $pool->id)}}" method="POST"
+                                                <form action="{{ route('kolam.destroy', $pool->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     <button class="btn btn-danger">
@@ -89,10 +89,15 @@
             document.getElementById("formInput").innerHTML =
                 '<h3 class="card-title">Kolam</h3><button type="button" onclick="inputForm()" class="btn btn-success float-right"><i class="fas fa-plus"></i> Tambah Data</button>';
         }
-
-        // function inputForm() {
-        //     document.getElementById("formInput").innerHTML =
-        //         '<h3 class="card-title">Kolam</h3><button type="button" onclick="noInputForm()" class="btn btn-success float-right"><i class="fas fa-plus"></i> Tambah Data</button><form><div class="card-body" style="padding-top: 2%;"><div style="margin-top:20px;" class="form-group"><label for="exampleInputEmail1">Nama Kolam</label><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"></div><div class="form-group"><label for="exampleInputEmail1">Area</label><input type="text" class="form-control" id="exampleInputEmail1" placeholder="Area (m)"></div><div class="form-group"><label>Deskripsi</label><textarea class="form-control" rows="3" placeholder="Enter ..."></textarea></div></div></form>';
-        // }
+    </script>
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        });
     </script>
 @endsection

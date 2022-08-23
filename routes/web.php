@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PoolController;
@@ -43,5 +44,13 @@ Route::middleware(['auth', 'active'])->group(function () {
     Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
     Route::get('/datasensor-table', [GrafikController::class, 'table']);
 });
+
+Route::prefix('/admin')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+        Route::get('/user', [AdminController::class, 'index'])->name('admin.user');
+        Route::post('/user/{id}', [AdminController::class, 'approve'])->name('user.approve');
+        Route::post('/user/d/{id}', [AdminController::class, 'unapprove'])->name('user.unapprove');
+    });
 
 Auth::routes();
