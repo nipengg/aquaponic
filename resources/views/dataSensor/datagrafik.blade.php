@@ -206,7 +206,7 @@
     <script type="text/javascript">
         function handleSelectChange(event) {
             var idUrl = document.getElementById("pilihKolam").value;
-            window.location.href = "{{ url('/datasensor-grafik/?id=') }}" + idUrl;
+            window.location.href = "{{ url('/datasensor/grafik/?id=') }}" + idUrl;
         }
 
         //Waktu

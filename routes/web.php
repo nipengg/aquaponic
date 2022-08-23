@@ -41,12 +41,15 @@ Route::middleware(['auth', 'active'])->group(function () {
     });
 
     // Data Sensor
-    Route::get('/datasensor-grafik', [GrafikController::class, 'grafik']);
-    Route::get('/datasensor-table', [GrafikController::class, 'table']);
+    Route::prefix('/datasensor')->group(function () {
+        Route::get('/grafik', [GrafikController::class, 'grafik']);
+        Route::get('/table', [GrafikController::class, 'table']);
+    });
 });
 
+// Admin Routes
 Route::prefix('/admin')
-    ->middleware(['auth', 'admin'])
+    ->middleware(['auth', 'admin', 'active'])
     ->group(function () {
         Route::get('/user', [AdminController::class, 'index'])->name('admin.user');
         Route::post('/user/{id}', [AdminController::class, 'approve'])->name('user.approve');
