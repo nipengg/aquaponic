@@ -51,9 +51,8 @@ Route::prefix('/admin')
         Route::get('/user', [AdminController::class, 'index'])->name('admin.user');
         Route::post('/user/{id}', [AdminController::class, 'approve'])->name('user.approve');
         Route::post('/user/d/{id}', [AdminController::class, 'unapprove'])->name('user.unapprove');
-        Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('user.edit');
-        Route::post('/edit/{id}', [AdminController::class, 'update'])->name('user.update');
-        Route::post('/{id}', [AdminController::class, 'destroy'])->name('user.destroy');
+        Route::get('/user/edit/{id}', [AdminController::class, 'edit'])->name('user.edit');
+        Route::post('/user/edit/{id}', [AdminController::class, 'update'])->name('user.update');
     });
 
 Auth::routes();

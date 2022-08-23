@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -34,7 +35,7 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('admin.user', ['user' => $id]);
+        return view('admin.user.edit', ['user' => $user]);
     }
 
     public function update(Request $request, $id)
@@ -42,14 +43,6 @@ class AdminController extends Controller
         $data = $request->all();
         $user = User::findOrFail($id);
         $user->update($data);
-
-        return redirect()->route('admin.user');
-    }
-
-    public function destroy($id)
-    {
-        $data = User::findOrFail($id);
-        $data->delete();
 
         return redirect()->route('admin.user');
     }

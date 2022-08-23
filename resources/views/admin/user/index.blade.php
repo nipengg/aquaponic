@@ -75,7 +75,7 @@
                                             <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-info">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
-                                            <form action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                            <form action="{{ route('user.unapprove', $user->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 <button class="btn btn-danger">
