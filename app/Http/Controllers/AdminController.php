@@ -29,4 +29,19 @@ class AdminController extends Controller
 
         return redirect()->route('admin.user');
     }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+
+        return view('admin.user', ['user' => $id]);
+    }
+
+    public function destroy($id)
+    {
+        $data = User::findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('admin.user');
+    }
 }

@@ -40,6 +40,7 @@
                                         <th>Status</th>
                                         <th>Approval</th>
                                         <th>Created At</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,9 +70,17 @@
                                                 @else
                                                     Verified Account
                                                 @endif
-
                                             </td>
                                             <td>{{ $user->created_at }}</td>
+                                            <td>
+                                            <form action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                                class="d-inline">
+                                                @csrf
+                                                <button class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
