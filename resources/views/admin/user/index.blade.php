@@ -72,7 +72,9 @@
                                                 @endif
                                             </td>
                                             <td>{{ $user->created_at }}</td>
-                                            <td>
+                                            <td><a href="{{ route('user.edit', $user->id) }}" class="btn btn-info">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
                                             <form action="{{ route('user.destroy', $user->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf

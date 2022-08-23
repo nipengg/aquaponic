@@ -37,6 +37,15 @@ class AdminController extends Controller
         return view('admin.user', ['user' => $id]);
     }
 
+    public function update(Request $request, $id)
+    {
+        $data = $request->all();
+        $user = User::findOrFail($id);
+        $user->update($data);
+
+        return redirect()->route('admin.user');
+    }
+
     public function destroy($id)
     {
         $data = User::findOrFail($id);
