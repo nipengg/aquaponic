@@ -32,8 +32,16 @@
                         <input autocomplete="off" type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" placeholder="Nama Kolam" required>
                     </div>
                     <div class="form-group">
-                        <label for="area">Email</label>
-                        <input id="desc" class="form-control" id="area" name="area" value="{{ $user->email }}" placeholder="Email" required>
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" value="{{ $user->email }}" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Status</label>
+                        <select class="form-control" id="role" name="role">
+                            <option value="user" {{ $user->role == 'user' ? 'selected' : '' }}>User</option>
+                            <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="inactive" {{ $user->role == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="desc">Phone</label>
@@ -49,8 +57,8 @@
         </div>
     </section>
     <script type="text/javascript">
-        document.getElementById("TopTitle").innerHTML = "Kolam";
-        document.getElementById("kolam").innerHTML =
-            '<a href="/kolam" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Kolam</p></a>';
+        document.getElementById("TopTitle").innerHTML = "Manage User";
+        document.getElementById("user").innerHTML =
+            '<a href="/admin/user" class="nav-link active"><i class="nav-icon fas fa-user-alt"></i><p>Manage User</p></a>';
     </script>
 @endsection
