@@ -26,8 +26,7 @@
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input id="email" name="email" autocomplete="off" type="email"
-                            value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus
-                            placeholder="Email" />
+                            value="{{ old('email') }}" placeholder="Email" required autofocus placeholder="Email" />
                     </div>
 
                     <div class="input-field">
@@ -49,27 +48,26 @@
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input id="name" type="text" name="name" value="{{ old('name') }}" required
-                            autocomplete="name" autofocus placeholder="Full Name" />
+                            autocomplete="off" autofocus placeholder="Full Name" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input id="email" type="email" name="email" value="{{ old('email') }}" required
-                            autocomplete="email" placeholder="Email" />
+                            autocomplete="off" placeholder="Email" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-phone"></i>
                         <input id="phone" type="number" name="phone" value="{{ old('phone') }}" required
-                            autocomplete="phone" autofocus placeholder="Phone Number" />
+                            autocomplete="off" autofocus placeholder="Phone Number" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input id="password" type="password" name="password" required autocomplete="new-password"
-                            placeholder="Password" />
+                        <input id="password" type="password" name="password" required placeholder="Password" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                            required autocomplete="new-password" placeholder="Confirm Password" />
+                            required placeholder="Confirm Password" />
                     </div>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
