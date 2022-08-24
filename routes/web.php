@@ -51,11 +51,13 @@ Route::middleware(['auth', 'active'])->group(function () {
 Route::prefix('/admin')
     ->middleware(['auth', 'admin', 'active'])
     ->group(function () {
-        Route::get('/user', [AdminController::class, 'index'])->name('admin.user');
-        Route::post('/user/{id}', [AdminController::class, 'approve'])->name('user.approve');
-        Route::post('/user/d/{id}', [AdminController::class, 'unapprove'])->name('user.unapprove');
-        Route::get('/user/edit/{id}', [AdminController::class, 'edit'])->name('user.edit');
-        Route::post('/user/edit/{id}', [AdminController::class, 'update'])->name('user.update');
+        Route::prefix('/user')->group(function() {
+            Route::get('/', [AdminController::class, 'index'])->name('admin.user');
+            Route::post('/{id}', [AdminController::class, 'approve'])->name('user.approve');
+            Route::post('/d/{id}', [AdminController::class, 'unapprove'])->name('user.unapprove');
+            Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('user.edit');
+            Route::post('/edit/{id}', [AdminController::class, 'update'])->name('user.update');
+        });
     });
 
 Auth::routes();

@@ -617,7 +617,10 @@
                 </script>
             @endforeach
 
-
+<script>
+    document.getElementById("beranda").innerHTML =
+            '<a href="/home" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Beranda</p></a>';
+</script>
 
             <!-- Main Footer -->
             <footer class="main-footer">

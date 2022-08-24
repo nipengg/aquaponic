@@ -21,8 +21,12 @@ class GrafikController extends Controller
         $id = $request->id;
         if ($id == NULL) {
             $pool = Pool::all();
-            $first = $pool->first();
-            $id = $first->id;
+            if ($pool->isEmpty()) {
+                $id = null;
+            } else {
+                $first = $pool->first();
+                $id = $first->id;
+            }
         }
 
 
@@ -56,8 +60,12 @@ class GrafikController extends Controller
 
         if ($id == NULL) {
             $pool = Pool::all();
-            $first = $pool->first();
-            $id = $first->id;
+            if ($pool->isEmpty()) {
+                $id = null;
+            } else {
+                $first = $pool->first();
+                $id = $first->id;
+            }
         }
 
         if ($from == NULL && $to == NULL) {
@@ -67,6 +75,9 @@ class GrafikController extends Controller
         }
 
         $count = $data->count();
+        if ($count == NULL) {
+            $count = 1;
+        }
 
         $kolam = Pool::all();
 

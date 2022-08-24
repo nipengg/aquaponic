@@ -13,31 +13,158 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}"> --}}
     <link rel="icon" href="{{ asset('AdminLTE/dist/img/aquaponicLogo.png') }}">
+
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}"> --}}
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/auth.css') }}">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
+<body>
+    {{-- <div class="login-box">
         <div class="login-logo">
             <a href="/"><b>Aquaponic</a></b>
         </div>
-        <!-- /.login-logo -->
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Login to start your session</p>
+    </div> --}}
 
-                <form method="POST" action="{{ route('login') }}">
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form method="POST" action="{{ route('login') }}" class="sign-in-form">
+                    @csrf
+                    <h2 class="title">Sign in</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="email" name="email" autocomplete="off" type="email" value="{{ old('email') }}"
+                            placeholder="Email" required autocomplete="email" autofocus placeholder="Email" />
+                    </div>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="password" name="password" type="password" required placeholder="Password" />
+                    </div>
+                    <button type="submit" class="btn solid">Login</button>
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                </form>
+
+                <form method="POST" action="{{ route('register') }}" class="sign-up-form">
+                    @csrf
+                    <h2 class="title">Register</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="name" type="text" name="name" value="{{ old('name') }}" required
+                            autocomplete="name" autofocus placeholder="Full Name" />
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                            autocomplete="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-phone"></i>
+                        <input id="phone" type="number" name="phone" value="{{ old('phone') }}" required
+                            autocomplete="phone" autofocus placeholder="Phone Number" />
+                        @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="password" type="password" name="password" required autocomplete="new-password"
+                            placeholder="Password" />
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                            required autocomplete="new-password" placeholder="Confirm Password" />
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Belum Punya Akun?</h3>
+                    <p>
+                        Silahkan klik tombol "Register" dibawah ini.
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Register
+                    </button>
+                </div>
+                <img src="{{ asset('AdminLTE/dist/img/AquaponicBg.png') }}" class="image" alt="" />
+            </div>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Sudah Punya Akun?</h3>
+                    <p>
+                        Silahkan klik "Login" untuk masuk ke halaman utama website.
+                    </p>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Login
+                    </button>
+                </div>
+                <img src="{{ asset('AdminLTE/dist/img/AquaponicBg.png') }}" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sign_in_btn = document.querySelector("#sign-in-btn");
+        const sign_up_btn = document.querySelector("#sign-up-btn");
+        const container = document.querySelector(".container");
+
+        sign_up_btn.addEventListener("click", () => {
+            container.classList.add("sign-up-mode");
+        });
+
+        sign_in_btn.addEventListener("click", () => {
+            container.classList.remove("sign-up-mode");
+        });
+    </script>
+
+
+
+
+
+    {{-- <form method="POST" action="{{ route('login') }}">
                     @csrf
 
                     <div class="input-group mb-3">
 
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                            placeholder="Email">
 
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -88,18 +215,16 @@
                         </div>
                         <!-- /.col -->
                     </div>
-                </form>
-                <hr/>
-                {{-- <p class="mb-1">
+                </form> --}}
+    {{-- <hr /> --}}
+    {{-- <p class="mb-1">
                     <a href="forgot-password.html">I forgot my password</a>
                 </p> --}}
-                <p class="mb-0">
+    {{-- <p class="mb-0">
                     <a href="{{ route('register') }}" class="text-center">Register a new account</a>
-                </p>
-            </div>
-            <!-- /.login-card-body -->
-        </div>
-    </div>
+                </p> --}}
+    <!-- /.login-card-body -->
+
     <!-- /.login-box -->
 
     <!-- jQuery -->

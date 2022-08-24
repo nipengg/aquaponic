@@ -91,7 +91,7 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
+                <nav id="menuAktif" class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
 
@@ -102,33 +102,36 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Data Sensor
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/datasensor/table" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tabel</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/datasensor/grafik" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Grafik</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        <li id="datasensorAktif">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-chart-pie"></i>
+                                    <p>
+                                        Data Sensor
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/datasensor/table" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Tabel</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/datasensor/grafik" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Grafik</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </li>
 
+                        
                         <li id="kolam" class="nav-item">
                             <a href="/kolam" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
+                                <i class="nav-icon fas fa-tint"></i>
                                 <p>Kolam</p>
                             </a>
                         </li>
@@ -161,7 +164,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2022 <a href="#">Aquaponic</a>.</strong>
+            <strong>Copyright &copy; 2022 <a href="http://sinamlab.com">SinamLab</a>.</strong>
             All rights reserved.
         </footer>
     </div>

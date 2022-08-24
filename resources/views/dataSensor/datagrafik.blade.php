@@ -213,9 +213,10 @@
         var getWaktu = {!! json_encode($ph->toArray()) !!};
         var waktu = [];
         var xhitung = 0;
-        for (var i = getWaktu.length-1; i >= 0; i--) {
+        for (var i = getWaktu.length - 1; i >= 0; i--) {
             var date = new Date(getWaktu[i].created_at);
-            waktu[xhitung] = (date.getHours() < 10 ? '0' : '') + (date.getHours()) + ":" + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes() + ":" + date.getSeconds();
+            waktu[xhitung] = (date.getHours() < 10 ? '0' : '') + (date.getHours()) + ":" + (date.getMinutes() < 10 ? '0' :
+                '') + date.getMinutes() + ":" + date.getSeconds();
             xhitung++;
         }
 
@@ -223,7 +224,7 @@
         var sitesPH = {!! json_encode($ph->toArray()) !!};
         var nilaiPh = [];
         xhitung = 0;
-        for (var i = sitesPH.length-1; i >= 0; i--) {
+        for (var i = sitesPH.length - 1; i >= 0; i--) {
             nilaiPh[xhitung] = sitesPH[i].ph_val;
             xhitung++;
         }
@@ -232,7 +233,7 @@
         var sitesTemp = {!! json_encode($temperature->toArray()) !!};
         var nilaiTemp = [];
         xhitung = 0;
-        for (var i = sitesTemp.length-1; i >= 0; i--) {
+        for (var i = sitesTemp.length - 1; i >= 0; i--) {
             nilaiTemp[xhitung] = sitesTemp[i].temper_val;
             xhitung++;
         }
@@ -240,7 +241,7 @@
         var sitesHum = {!! json_encode($humidity->toArray()) !!};
         var nilaiHum = [];
         xhitung = 0;
-        for (var i = sitesHum.length-1; i >= 0; i--) {
+        for (var i = sitesHum.length - 1; i >= 0; i--) {
             nilaiHum[xhitung] = sitesHum[i].humidity_val;
             xhitung++;
         }
@@ -248,7 +249,7 @@
         var sitesOxy = {!! json_encode($oxygen->toArray()) !!};
         var nilaiOxy = [];
         xhitung = 0;
-        for (var i = sitesOxy.length-1; i >= 0; i--) {
+        for (var i = sitesOxy.length - 1; i >= 0; i--) {
             nilaiOxy[xhitung] = sitesOxy[i].oxygen_val;
             xhitung++;
         }
@@ -256,7 +257,7 @@
         var sitesTds = {!! json_encode($TDS->toArray()) !!};
         var nilaiTds = [];
         xhitung = 0;
-        for (var i = sitesTds.length-1; i >= 0; i--) {
+        for (var i = sitesTds.length - 1; i >= 0; i--) {
             nilaiTds[xhitung] = sitesTds[i].tds_val;
             xhitung++;
         }
@@ -264,7 +265,7 @@
         var sitesTurbi = {!! json_encode($turbidity->toArray()) !!};
         var nilaiTurbi = [];
         xhitung = 0;
-        for (var i = sitesTurbi.length-1; i >= 0; i--) {
+        for (var i = sitesTurbi.length - 1; i >= 0; i--) {
             nilaiTurbi[xhitung] = sitesTurbi[i].turbidities_val;
             xhitung++;
         }
@@ -462,6 +463,10 @@
             data: lineChartDataTurbi,
             options: lineChartOptions
         })
+
+        document.getElementById("menuAktif").innerHTML =
+            '<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"><li id="beranda" class="nav-item"><a href="/home" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Beranda</p></a></li><li class="nav-item menu-open"><a href="#" class="nav-link active"><i class="nav-icon fas fa-chart-pie"></i><p>Data Sensor<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="/datasensor/table" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Tabel</p></a></li><li class="nav-item"><a href="/datasensor/grafik" class="nav-link active"><i class="far fa-circle nav-icon"></i><p>Grafik</p></a></li></ul></li><li id="kolam" class="nav-item"><a href="/kolam" class="nav-link"><i class="nav-icon fas fa-tint"></i><p>Kolam</p></a></li>@if (Auth::user()->role == 'admin')<li id="user" class="nav-item"><a href="/admin/user" class="nav-link"><i class="nav-icon fas fa-user"></i><p>Manage User</p></a></li>@endif</ul>';
+
     </script>
     </body>
 

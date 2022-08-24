@@ -153,8 +153,6 @@
 
     <script type="text/javascript">
         document.getElementById("TopTitle").innerHTML = "Data Table";
-        document.getElementById("dataSensor").innerHTML =
-            '<li class="nav-item menu-is-opening menu-open"><a href="#" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Data Sensor<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview"><li class="nav-item "><a href="/datasensor-table" class="nav-link active"><i class="far fa-circle nav-icon"></i><p>Tabel</p></a></li><li class="nav-item"><a href="/datasensor-grafik" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Grafik</p></a></li></ul></li>';
 
         function handleSelectChange(event) {
             window.location.href = "{{ url('/datasensor/table/?pool=') }}" + $("#pilihKolam").val();
@@ -179,5 +177,9 @@
                 ],
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
+        
+        document.getElementById("menuAktif").innerHTML =
+            '<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"><li id="beranda" class="nav-item"><a href="/home" class="nav-link"><i class="nav-icon fas fa-tachometer-alt"></i><p>Beranda</p></a></li><li class="nav-item menu-open"><a href="#" class="nav-link active"><i class="nav-icon fas fa-chart-pie"></i><p>Data Sensor<i class="right fas fa-angle-left"></i></p></a><ul class="nav nav-treeview"><li class="nav-item"><a href="/datasensor/table" class="nav-link active"><i class="far fa-circle nav-icon"></i><p>Tabel</p></a></li><li class="nav-item"><a href="/datasensor/grafik" class="nav-link"><i class="far fa-circle nav-icon"></i><p>Grafik</p></a></li></ul></li><li id="kolam" class="nav-item"><a href="/kolam" class="nav-link"><i class="nav-icon fas fa-tint"></i><p>Kolam</p></a></li>@if (Auth::user()->role == 'admin')<li id="user" class="nav-item"><a href="/admin/user" class="nav-link"><i class="nav-icon fas fa-user"></i><p>Manage User</p></a></li>@endif</ul>';
+
     </script>
 @endsection

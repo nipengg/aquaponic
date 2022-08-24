@@ -83,7 +83,7 @@
     <script type="text/javascript">
         document.getElementById("TopTitle").innerHTML = "Kolam";
         document.getElementById("kolam").innerHTML =
-            '<a href="/kolam" class="nav-link active"><i class="nav-icon fas fa-tachometer-alt"></i><p>Kolam</p></a>';
+            '<a href="/kolam" class="nav-link active"><i class="nav-icon fas fa-tint"></i><p>Kolam</p></a>';
 
         function noInputForm() {
             document.getElementById("formInput").innerHTML =
