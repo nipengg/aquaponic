@@ -9,28 +9,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    {{-- <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}"> --}}
     <link rel="icon" href="{{ asset('AdminLTE/dist/img/aquaponicLogo.png') }}">
-
-    <!-- icheck bootstrap -->
-    {{-- <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}"> --}}
-    <!-- Theme style -->
-    {{-- <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/auth.css') }}">
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    {{-- <div class="login-box">
-        <div class="login-logo">
-            <a href="/"><b>Aquaponic</a></b>
-        </div>
-    </div> --}}
-
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
@@ -39,8 +25,14 @@
                     <h2 class="title">Sign in</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input id="email" name="email" autocomplete="off" type="email" value="{{ old('email') }}"
-                            placeholder="Email" required autocomplete="email" autofocus placeholder="Email" />
+                        <input id="email" name="email" autocomplete="off" type="email"
+                            value="{{ old('email') }}" placeholder="Email" required autocomplete="email" autofocus
+                            placeholder="Email" />
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="password" name="password" type="password" required placeholder="Password" />
                     </div>
 
                     @error('email')
@@ -48,19 +40,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input id="password" name="password" type="password" required placeholder="Password" />
-                    </div>
                     <button type="submit" class="btn solid">Login</button>
-
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-
                 </form>
 
                 <form method="POST" action="{{ route('register') }}" class="sign-up-form">
@@ -70,11 +50,6 @@
                         <i class="fas fa-user"></i>
                         <input id="name" type="text" name="name" value="{{ old('name') }}" required
                             autocomplete="name" autofocus placeholder="Full Name" />
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
@@ -85,27 +60,32 @@
                         <i class="fas fa-phone"></i>
                         <input id="phone" type="number" name="phone" value="{{ old('phone') }}" required
                             autocomplete="phone" autofocus placeholder="Phone Number" />
-                        @error('phone')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input id="password" type="password" name="password" required autocomplete="new-password"
                             placeholder="Password" />
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                             required autocomplete="new-password" placeholder="Confirm Password" />
                     </div>
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <input type="submit" class="btn" value="Sign up" />
                 </form>
             </div>

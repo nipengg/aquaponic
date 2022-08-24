@@ -136,6 +136,12 @@ form.sign-in-form {
   border-color: #4481eb;
 }
 
+.invalid-feedback {
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
 .btn {
   width: 150px;
   background-color: #5995fd;
