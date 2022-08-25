@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Pool;
 use Exception;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\TryCatch;
 
 class PoolController extends Controller
 {
@@ -22,12 +21,6 @@ class PoolController extends Controller
             return ApiFormatter::createApi(400, 'Failed');
         }
     }
-
-    public function create()
-    {
-        //
-    }
-
 
     public function store(Request $request)
     {
@@ -54,28 +47,5 @@ class PoolController extends Controller
         } catch (Exception $error) {
             return ApiFormatter::createApi(400, 'Failed');
         }
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
- 
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
     }
 }

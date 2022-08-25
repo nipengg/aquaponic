@@ -9,17 +9,18 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
 
-Route::get('pooldata', [PoolDataController::class, 'index']);
-Route::post('pooldata/store', [PoolDataController::class, 'store']);
-Route::get('pool', [PoolController::class, 'index']);
-Route::post('pool/store', [PoolController::class, 'store']);
+Route::prefix('/pooldata')->group(function () {
+    Route::get('/', [PoolDataController::class, 'index']);
+    Route::get('/test', [PoolDataController::class, 'test']);
+    Route::post('/store', [PoolDataController::class, 'store']);
+});
+
+Route::prefix('/pool')->group(function () {
+    Route::get('/', [PoolController::class, 'index']);
+    Route::post('/store', [PoolController::class, 'store']);
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PoolData;
 use Exception;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\Http;
 
 class PoolDataController extends Controller
 {
@@ -22,13 +22,6 @@ class PoolDataController extends Controller
             return ApiFormatter::createApi(400, 'Failed');
         }
     }
-
-
-    public function create()
-    {
-        //
-    }
-
 
     public function store(Request $request)
     {
@@ -65,27 +58,24 @@ class PoolDataController extends Controller
         }
     }
 
-
-    public function show($id)
+    public function test()
     {
-        //
-    }
+        $res = Http::get('https://aquaponic.sinamlab.com/api/pooldata');
 
+        $data = json_decode($res, true);
 
-    public function edit($id)
-    {
-        //
-    }
+        // Fetch Latest Data
+        foreach($data['data'] as $item)
+        {
+            $id = $item['id'];
+            $ph = $item['ph_val'];
+            $temp = $item['temper_val'];
+            $humidity = $item['humidity_val'];
+            $oxygen = $item['oxygen_val'];
+            $tds = $item['tds_val'];
+            $turbidities = $item['turbidities_val'];
+        }
 
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
+        return $res;
     }
 }
