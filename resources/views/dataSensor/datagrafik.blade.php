@@ -29,7 +29,18 @@
         </div><!-- /.container-fluid -->
     </div>
 
-
+    <div class="container">
+        <div id="date_filter" class="row">
+            <input value="{{ $from }}" type="date" id="min" name="min"
+                class="form-control col-sm" /> &nbsp; &nbsp;
+            To &nbsp; &nbsp; <input value="{{ $to }}" type="date" id="max"
+                name="max" class="form-control col-sm" /> &nbsp; &nbsp;
+            <button onclick="handleDateChange()" type="button"
+                class="btn btn-success col-sm">Filter</button> &nbsp; &nbsp;
+            <button type="button" onclick="handleSelectChange()" class="btn btn-danger col-sm">
+                Clear Filter</a>
+        </div>
+    </div>
 
     <!-- PH CHART -->
     <div class="container-fluid" style="padding: 20px; margin-bottom:-40px;">
@@ -208,6 +219,13 @@
             var idUrl = document.getElementById("pilihKolam").value;
             window.location.href = "{{ url('/datasensor/grafik/?id=') }}" + idUrl;
         }
+
+        function handleDateChange(event) {
+            var min = document.getElementById("min").value;
+            var max = document.getElementById("max").value;
+            window.location.href = "{{ url('/datasensor/grafik/?id=') }}" + $("#pilihKolam").val() + ('&from=') + min + (
+                '&to=') + max;
+        };
 
         //Waktu
         var getWaktu = {!! json_encode($ph->toArray()) !!};
