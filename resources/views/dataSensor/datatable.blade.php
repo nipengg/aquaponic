@@ -38,8 +38,20 @@
                     <div class="card">
                         <div class="card-header">
                             <p class="card-title">Data Kolam</p>
-                            <div class="float-right">
-                                <div id="date_filter" class="row">
+
+                                <div class="container-fluid mt-5" style="padding:0 30px 0 30px">
+                                    <div id="date_filter" class="row">
+                                        <input value="{{ $from }}" type="date" id="min" name="min"
+                                            class="form-control col-sm" /> &nbsp; &nbsp;
+                                        To &nbsp; &nbsp; <input value="{{ $to }}" type="date" id="max"
+                                            name="max" class="form-control col-sm" /> &nbsp; &nbsp;
+                                        <button onclick="handleDateChange()" type="button"
+                                            class="btn btn-success col-sm">Filter</button> &nbsp; &nbsp;
+                                        <button type="button" onclick="handleSelectChange()" class="btn btn-danger col-sm">
+                                            Clear Filter</a>
+                                    </div>
+                                </div>
+                                {{-- <div id="date_filter" class="row">
                                     <input value="{{ $from }}" type="date" id="min" name="min"
                                         class="form-control col-sm" /> &nbsp; &nbsp;
                                     To &nbsp; &nbsp; <input value="{{ $to }}" type="date" id="max"
@@ -48,9 +60,10 @@
                                         class="btn btn-success col-sm">Filter</button> &nbsp; &nbsp;
                                     <button type="button" onclick="handleSelectChange()" class="btn btn-danger col-sm">
                                         Clear Filter</a>
-                                </div>
-                            </div>
+                                </div> --}}
+
                         </div>
+                        
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">

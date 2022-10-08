@@ -28,12 +28,12 @@ class GrafikController extends Controller
         $kolam = Pool::all();
 
         if ($from == NULL && $to == NULL) {
-            $ph = PoolData::select('ph_val', 'created_at')->where("pool_id", $id)->latest()->limit(5)->get();
-            $oxygen = PoolData::select('oxygen_val', 'created_at')->where("pool_id", $id)->latest()->limit(5)->get();
-            $humidity = PoolData::select('humidity_val', 'created_at')->where("pool_id", $id)->latest()->latest()->limit(5)->get();
-            $TDS = PoolData::select('tds_val', 'created_at')->where("pool_id", $id)->latest()->limit(5)->get();
-            $temperature = PoolData::select('temper_val', 'created_at')->where("pool_id", $id)->latest()->limit(5)->get();
-            $turbidity = PoolData::select('turbidities_val', 'created_at')->where("pool_id", $id)->latest()->limit(5)->get();
+            $ph = PoolData::select('ph_val', 'created_at')->where("pool_id", $id)->latest()->limit(19)->get();
+            $oxygen = PoolData::select('oxygen_val', 'created_at')->where("pool_id", $id)->latest()->limit(19)->get();
+            $humidity = PoolData::select('humidity_val', 'created_at')->where("pool_id", $id)->latest()->latest()->limit(19)->get();
+            $TDS = PoolData::select('tds_val', 'created_at')->where("pool_id", $id)->latest()->limit(19)->get();
+            $temperature = PoolData::select('temper_val', 'created_at')->where("pool_id", $id)->latest()->limit(19)->get();
+            $turbidity = PoolData::select('turbidities_val', 'created_at')->where("pool_id", $id)->latest()->limit(19)->get();
         } else {
             $ph = PoolData::select('ph_val', 'created_at')->where("pool_id", $id)->latest()->whereBetween("created_at", [$from, $to])->orderBy('created_at', 'desc')->get();
             $oxygen = PoolData::select('oxygen_val', 'created_at')->where("pool_id", $id)->latest()->whereBetween("created_at", [$from, $to])->orderBy('created_at', 'desc')->get();

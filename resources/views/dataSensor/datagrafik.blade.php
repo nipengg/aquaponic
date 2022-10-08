@@ -29,7 +29,7 @@
         </div><!-- /.container-fluid -->
     </div>
 
-    <div class="container">
+    <div class="container-fluid" style="padding:0 30px 0 30px">
         <div id="date_filter" class="row">
             <input value="{{ $from }}" type="date" id="min" name="min"
                 class="form-control col-sm" /> &nbsp; &nbsp;
@@ -296,7 +296,7 @@
         var lineChartCanvasPh = $('#lineChart').get(0).getContext('2d')
 
         var lineChartDataPh = {
-            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4], waktu[5], waktu[6], waktu[7], waktu[8], waktu[9], waktu[10], waktu[11], waktu[12], waktu[13], waktu[14], waktu[15], waktu[16], waktu[17], waktu[18], waktu[19]],
             datasets: [{
                 label: 'pH',
                 fill: false,
@@ -306,7 +306,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4]]
+                data: [nilaiPh[0], nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4], nilaiPh[5], nilaiPh[6], nilaiPh[7], nilaiPh[8], nilaiPh[9], nilaiPh[10], nilaiPh[11], nilaiPh[12], nilaiPh[13], nilaiPh[14], nilaiPh[15], nilaiPh[16], nilaiPh[17], nilaiPh[18], nilaiPh[19]]
             }, ]
         }
 
@@ -346,7 +346,7 @@
         var lineChartCanvasTemp = $('#temperChart').get(0).getContext('2d')
 
         var lineChartDataTemp = {
-            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4], waktu[5], waktu[6], waktu[7], waktu[8], waktu[9], waktu[10], waktu[11], waktu[12], waktu[13], waktu[14], waktu[15], waktu[16], waktu[17], waktu[18], waktu[19]],
             datasets: [{
                 label: 'Temperature',
                 fill: false,
@@ -356,7 +356,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4]]
+                data: [nilaiTemp[0], nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4], nilaiTemp[5], nilaiTemp[6], nilaiTemp[7], nilaiTemp[8], nilaiTemp[9], nilaiTemp[10], nilaiTemp[11], nilaiTemp[12], nilaiTemp[13], nilaiTemp[14], nilaiTemp[15], nilaiTemp[16], nilaiTemp[17], nilaiTemp[18], nilaiTemp[19]]
             }, ]
         }
 
@@ -374,7 +374,7 @@
         var lineChartCanvasHum = $('#humChart').get(0).getContext('2d')
 
         var lineChartDataHum = {
-            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4], waktu[5], waktu[6], waktu[7], waktu[8], waktu[9], waktu[10], waktu[11], waktu[12], waktu[13], waktu[14], waktu[15], waktu[16], waktu[17], waktu[18], waktu[19]],
             datasets: [{
                 label: 'Humidity',
                 fill: false,
@@ -384,7 +384,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4]]
+                data: [nilaiHum[0], nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4], nilaiHum[5], nilaiHum[6], nilaiHum[7], nilaiHum[8], nilaiHum[9], nilaiHum[10], nilaiHum[11], nilaiHum[12], nilaiHum[13], nilaiHum[14], nilaiHum[15], nilaiHum[16], nilaiHum[17], nilaiHum[18], nilaiHum[19]]
             }, ]
         }
 
@@ -404,7 +404,7 @@
         var lineChartCanvasOxy = $('#OxyChart').get(0).getContext('2d')
 
         var lineChartDataOxy = {
-            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4], waktu[5], waktu[6], waktu[7], waktu[8], waktu[9], waktu[10], waktu[11], waktu[12], waktu[13], waktu[14], waktu[15], waktu[16], waktu[17], waktu[18], waktu[19]],
             datasets: [{
                 label: 'Oxygen',
                 fill: false,
@@ -414,7 +414,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4]]
+                data: [nilaiOxy[0], nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4], nilaiOxy[5], nilaiOxy[6], nilaiOxy[7], nilaiOxy[8], nilaiOxy[9], nilaiOxy[10], nilaiOxy[11], nilaiOxy[12], nilaiOxy[13], nilaiOxy[14], nilaiOxy[15], nilaiOxy[16], nilaiOxy[17], nilaiOxy[18], nilaiOxy[19]]
             }, ]
         }
 
@@ -433,7 +433,7 @@
         var lineChartCanvasTds = $('#TdsChart').get(0).getContext('2d')
 
         var lineChartDataTds = {
-            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4], waktu[5], waktu[6], waktu[7], waktu[8], waktu[9], waktu[10], waktu[11], waktu[12], waktu[13], waktu[14], waktu[15], waktu[16], waktu[17], waktu[18], waktu[19]],
             datasets: [{
                 label: 'TDS',
                 fill: false,
@@ -443,7 +443,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4]]
+                data: [nilaiTds[0], nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4], nilaiTds[5], nilaiTds[6], nilaiTds[7], nilaiTds[8], nilaiTds[9], nilaiTds[10], nilaiTds[11], nilaiTds[12], nilaiTds[13], nilaiTds[14], nilaiTds[15], nilaiTds[16], nilaiTds[17], nilaiTds[18], nilaiTds[19]]
             }, ]
         }
 
@@ -461,7 +461,7 @@
         var lineChartCanvasTurbi = $('#TurbiChart').get(0).getContext('2d')
 
         var lineChartDataTurbi = {
-            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4]],
+            labels: [waktu[0], waktu[1], waktu[2], waktu[3], waktu[4], waktu[5], waktu[6], waktu[7], waktu[8], waktu[9], waktu[10], waktu[11], waktu[12], waktu[13], waktu[14], waktu[15], waktu[16], waktu[17], waktu[18], waktu[19]],
             datasets: [{
                 label: 'Turbi',
                 fill: false,
@@ -471,7 +471,7 @@
                 pointRadius: true,
                 hoverRadius: 8,
                 borderWidth: 3,
-                data: [nilaiTurbi[0], nilaiTurbi[1], nilaiTurbi[2], nilaiTurbi[3], nilaiTurbi[4]]
+                data: [nilaiTurbi[0], nilaiTurbi[1], nilaiTurbi[2], nilaiTurbi[3], nilaiTurbi[4], nilaiTurbi[5], nilaiTurbi[6], nilaiTurbi[7], nilaiTurbi[8], nilaiTurbi[9], nilaiTurbi[10], nilaiTurbi[11], nilaiTurbi[12], nilaiTurbi[13], nilaiTurbi[14], nilaiTurbi[15], nilaiTurbi[16], nilaiTurbi[17], nilaiTurbi[18], nilaiTurbi[19]]
             }, ]
         }
 

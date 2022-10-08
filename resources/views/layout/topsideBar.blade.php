@@ -31,6 +31,9 @@
     <script src="{{ asset('AdminLTE/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('AdminLTE/plugins/chart.js/Chart.min.js') }}"></script>
 
+    <!-- Dicoding IDcamp -->
+    <meta name="dicoding:email" content="akbarhadadal@gmail.com">
+
 </head>
 
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
