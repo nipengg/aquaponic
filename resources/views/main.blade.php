@@ -310,13 +310,14 @@
                     var y = 0;
                     var banyakData = 0;
                     var clock = [];
-                    console.log("looping UTAMA ke" + x[count])
+                    // console.log("looping UTAMA ke" + x[count])
 
                     //bikin count untuk mengetahui banyak data pada id pool yang sama
+                    console.log(poolsDataAtribut.length)
                     for (var i = 0; i < poolsDataAtribut.length; i++) {
                         if (poolsDataAtribut[i].pool_id == idPool) banyakData++;
                     }
-                    if (banyakData > 5) banyakData = 5;
+                    if (banyakData >= 15) banyakData = 15;
 
                     for (var i = 0; i < poolsDataAtribut.length; i++) {
                         //getElementID pool and time
@@ -327,7 +328,7 @@
                         var IdPoolGet = document.getElementById(elementidPool).value;
                         var TimeGet = document.getElementById(elementidTime).value;
 
-                        if (IdPoolGet == idPool && banyakData > 0 && banyakData <= 5) {
+                        if (IdPoolGet == idPool && banyakData >= 0 && banyakData <= 15) {
 
                             yitung++;
                             clock[banyakData] = TimeGet;
@@ -361,7 +362,7 @@
                             var lastPH = nilaiPh[nilaiPh.length-1];
                             var progressPh = (lastPH / 14) * 100;
 
-                            if (progressPh < 48.5 || progressPh > 50) {
+                            if (lastPH < 6.8 || progressPh > 7) {
                                 var phStatus = " Not Ideal Score";
                                 var iconStatusPh = "fas fa-caret-down";
                                 var textColorStatusPh = "text-danger";
@@ -376,7 +377,7 @@
                             var lastTemp = nilaiTemp[nilaiTemp.length-1];
                             var progressTemp = (lastTemp / 100) * 100;
 
-                            if (progressTemp < 20 || progressTemp > 30) {
+                            if (lastTemp < 20 || progressTemp > 30) {
                                 var TempStatus = " Not Ideal Score";
                                 var iconStatusTemp = "fas fa-caret-down";
                                 var textColorStatusTemp = "text-danger";
@@ -388,9 +389,9 @@
 
                             //Hum variable
                             var lastHum = nilaiHum[nilaiHum.length-1];
-                            var progressHum = (lastHum / 100) * 100;
+                            var progressHum = (lastHum / 50) * 100;
 
-                            if (progressHum < 60 || progressHum > 80)
+                            if (lastHum < 40 || progressHum > 80)
                             {
                                 var HumStatus = " Not Ideal Score";
                                 var iconStatusHum = "fas fa-caret-down";
@@ -404,9 +405,9 @@
 
                             //Tds variable
                             var lastTds = nilaiTds[nilaiTds.length-1];
-                            var progressTds = (lastTds / 1500) * 100;
+                            var progressTds = (lastTds / 20) * 100;
 
-                            if (progressTds < 1050 || progressTds > 1200){
+                            if (lastTds < 10 || progressTds > 12){
                                 var TdsStatus = " Not Ideal Score";
                                 var iconStatusTds = "fas fa-caret-down";
                                 var textColorStatusTds = "text-danger";
@@ -419,9 +420,9 @@
 
                             //Tur variable
                             var lastTur = nilaiTur[nilaiTur.length-1];
-                            var progressTur = (lastTur / 50) * 100;
+                            var progressTur = (lastTur / 2000) * 100;
 
-                            if (progressTur < 1 || progressTur > 5){
+                            if (lastTur < 1050 || progressTur > 2000){
                                 var TurStatus = " Not Ideal Score";
                                 var iconStatusTur = "fas fa-caret-down";
                                 var textColorStatusTur = "text-danger";
@@ -434,9 +435,9 @@
 
                             //Oxy variable
                             var lastOxy = nilaiOxy[nilaiOxy.length-1];
-                            var progressOxy = (lastOxy / 50) * 100;
+                            var progressOxy = (lastOxy / 20) * 100;
 
-                            if (progressOxy < 4 || progressOxy > 12){
+                            if (progressOxy < 2 || progressOxy > 12){
                                 var OxyStatus = " Not Ideal Score";
                                 var iconStatusOxy = "fas fa-caret-down";
                                 var textColorStatusOxy = "text-danger";
@@ -459,20 +460,20 @@
                                 progressTemp + '%"></div></div>';
                             //Humidity
                             document.getElementById(tempHum).innerHTML = 'Humidity<span class="float-right"><b>' + lastHum +
-                                '</b>/100</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
+                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#257CFF; width: ' +
                                 progressHum + '%"></div></div>';
                             //Tds
                             document.getElementById(tempTds).innerHTML = 'Total Dissolved Solid (TDS)<span class="float-right"><b>' +
                                 lastTds +
-                                '</b>/1500</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#3d9970; width: ' +
+                                '</b>/20</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#3d9970; width: ' +
                                 progressTds + '%"></div></div>';
                             //Turbidity
                             document.getElementById(tempTur).innerHTML = 'Turbidity<span class="float-right"><b>' + lastTur +
-                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#605ca8; width: ' +
+                                '</b>/2000</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#605ca8; width: ' +
                                 progressTur + '%"></div></div>';
                             //Oxygen
                             document.getElementById(tempOxy).innerHTML = 'Oxygen<span class="float-right"><b>' + lastOxy +
-                                '</b>/50</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#01ff70; width: ' +
+                                '</b>/20</span><div class="progress progress-sm"><div class="progress-bar" style="background-color:#01ff70; width: ' +
                                 progressOxy + '%"></div></div>';
 
                             // Status Data
@@ -485,12 +486,12 @@
                                 '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusTemp + '"><i class="' +
                                 iconStatusTemp + '"></i>' +
                                 TempStatus + '</span><h5 class="description-header">' + lastTemp +
-                                '</h5><span class="description-text">Temp</span></div>';
+                                '</h5><span class="description-text">Temperature</span></div>';
                             document.getElementById(StatusHum).innerHTML =
                                 '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusHum + '"><i class="' +
                                 iconStatusHum + '"></i>' +
                                 HumStatus + '</span><h5 class="description-header">' + lastHum +
-                                '</h5><span class="description-text">Hum</span></div>';
+                                '</h5><span class="description-text">Humidity</span></div>';
                             document.getElementById(StatusTds).innerHTML =
                                 '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusTds + '"><i class="' +
                                 iconStatusTds + '"></i>' +
@@ -500,12 +501,12 @@
                                 '<div class="description-block border-right"><span class="description-percentage ' + textColorStatusTur + '"><i class="' +
                                 iconStatusTur + '"></i>' +
                                 TurStatus + '</span><h5 class="description-header">' + lastTur +
-                                '</h5><span class="description-text">Tur</span></div>';
+                                '</h5><span class="description-text">Turbidity</span></div>';
                             document.getElementById(StatusOxy).innerHTML =
                                 '<div class="description-block"><span class="description-percentage ' + textColorStatusOxy + '"><i class="' +
                                 iconStatusOxy + '"></i>' +
                                 OxyStatus + '</span><h5 class="description-header">' + lastOxy +
-                                '</h5><span class="description-text">Oxy</span></div>';
+                                '</h5><span class="description-text">Oxygen</span></div>';
 
                         }
                     }
@@ -518,7 +519,7 @@
                     var lineChartCanvasPh = $('#' + idChart).get(0).getContext('2d')
 
                     var lineChartDataPh = {
-                        labels: [clock[1], clock[2], clock[3], clock[4], clock[5]],
+                        labels: [clock[1], clock[2], clock[3], clock[4], clock[5], clock[6], clock[7], clock[8], clock[9], clock[10], clock[11], clock[12], clock[13], clock[14], clock[15]],
                         datasets: [{
                                 label: 'pH',
                                 fill: false,
@@ -528,7 +529,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4], nilaiPh[5]]
+                                data: [nilaiPh[1], nilaiPh[2], nilaiPh[3], nilaiPh[4], nilaiPh[5], nilaiPh[6], nilaiPh[7], nilaiPh[8], nilaiPh[9], nilaiPh[10], nilaiPh[11], nilaiPh[12], nilaiPh[13], nilaiPh[14], nilaiPh[15]]
                             },
                             {
                                 label: 'Temperature',
@@ -539,7 +540,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4], nilaiTemp[5]]
+                                data: [nilaiTemp[1], nilaiTemp[2], nilaiTemp[3], nilaiTemp[4], nilaiTemp[5], nilaiTemp[6], nilaiTemp[7], nilaiTemp[8], nilaiTemp[9], nilaiTemp[10], nilaiTemp[11], nilaiTemp[12], nilaiTemp[13], nilaiTemp[14], nilaiTemp[15]]
                             },
                             {
                                 label: 'Humidity',
@@ -550,7 +551,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4], nilaiHum[5]]
+                                data: [nilaiHum[1], nilaiHum[2], nilaiHum[3], nilaiHum[4], nilaiHum[5], nilaiHum[6], nilaiHum[7], nilaiHum[8], nilaiHum[9], nilaiHum[10], nilaiHum[11], nilaiHum[12], nilaiHum[13], nilaiHum[14], nilaiHum[15]]
                             },
                             {
                                 label: 'Total Dissolved Solid',
@@ -561,7 +562,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4], nilaiTds[5]]
+                                data: [nilaiTds[1], nilaiTds[2], nilaiTds[3], nilaiTds[4], nilaiTds[5], nilaiTds[6], nilaiTds[7], nilaiTds[8], nilaiTds[9], nilaiTds[10], nilaiTds[11], nilaiTds[12], nilaiTds[13], nilaiTds[14], nilaiTds[15]]
                             },
                             {
                                 label: 'Turbidity',
@@ -572,7 +573,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiTur[1], nilaiTur[2], nilaiTur[3], nilaiTur[4], nilaiTur[5]]
+                                data: [nilaiTur[1], nilaiTur[2], nilaiTur[3], nilaiTur[4], nilaiTur[5], nilaiTur[6], nilaiTur[7], nilaiTur[8], nilaiTur[9], nilaiTur[10], nilaiTur[11], nilaiTur[12], nilaiTur[13], nilaiTur[14], nilaiTur[15]]
                             },
                             {
                                 label: 'Dissolved Oxygen',
@@ -583,7 +584,7 @@
                                 pointRadius: true,
                                 hoverRadius: 8,
                                 borderWidth: 3,
-                                data: [nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4], nilaiOxy[5]]
+                                data: [nilaiOxy[1], nilaiOxy[2], nilaiOxy[3], nilaiOxy[4], nilaiOxy[5], nilaiOxy[6], nilaiOxy[7], nilaiOxy[8], nilaiOxy[9], nilaiOxy[10], nilaiOxy[11], nilaiOxy[12], nilaiOxy[13], nilaiOxy[14], nilaiOxy[15]]
                             },
                         ]
                     }
