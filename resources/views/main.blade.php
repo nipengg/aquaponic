@@ -377,7 +377,7 @@
                             var lastTemp = nilaiTemp[nilaiTemp.length-1];
                             var progressTemp = (lastTemp / 100) * 100;
 
-                            if (lastTemp < 20 || progressTemp > 30) {
+                            if (lastTemp < 20 || lastTemp > 35) {
                                 var TempStatus = " Not Ideal Score";
                                 var iconStatusTemp = "fas fa-caret-down";
                                 var textColorStatusTemp = "text-danger";
@@ -391,7 +391,7 @@
                             var lastHum = nilaiHum[nilaiHum.length-1];
                             var progressHum = (lastHum / 50) * 100;
 
-                            if (lastHum < 40 || progressHum > 80)
+                            if (lastHum < 40 || lastHum > 60)
                             {
                                 var HumStatus = " Not Ideal Score";
                                 var iconStatusHum = "fas fa-caret-down";
@@ -407,7 +407,7 @@
                             var lastTds = nilaiTds[nilaiTds.length-1];
                             var progressTds = (lastTds / 20) * 100;
 
-                            if (lastTds < 10 || progressTds > 12){
+                            if (lastTds < 10 || lastTds > 12){
                                 var TdsStatus = " Not Ideal Score";
                                 var iconStatusTds = "fas fa-caret-down";
                                 var textColorStatusTds = "text-danger";
