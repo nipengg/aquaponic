@@ -15,10 +15,9 @@ class MainController extends Controller
         $pools = Pool::all();
         $pools_count = $pools->count();
 
-
         $pools_data = PoolData::latest()->get();
         $pools_data_count = $pools_data->count();
-
+        $pools_data = PoolData::latest()->limit(20)->get();
 
         $users = User::all();
         $users_count = $users->count();
