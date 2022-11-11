@@ -117,13 +117,13 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/dataSensor/table" class="nav-link">
+                                        <a href="/datasensor/table" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Tabel</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/dataSensor/grafik" class="nav-link">
+                                        <a href="/datasensor/grafik" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Grafik</p>
                                         </a>
@@ -131,7 +131,6 @@
                                 </ul>
                             </li>
                         </li>
-
 
                         <li id="kolam" class="nav-item">
                             <a href="/kolam" class="nav-link">
